@@ -1,5 +1,8 @@
 /* QExam namespace */
 var QExam = {};
+	
+var GRAY_LIGHT1 = "#ECECEC";
+var TRANSPARENT = "transparent";
 
 
 /* 
@@ -43,12 +46,18 @@ QExam.ExamModule = {
 
 	getExam: function() {
 		var exam = this;
+
+		$(document.createElement('button'))
+			.attr('id', 'nextQ').text('Siguiente')
+			.attr('disabled', 'disabled')
+			.addClass('btn btn-lg btn-block').appendTo("#containerControls");
+
 		$.getJSON(this.path + this.name).done(function (data) {
 			exam.questions = data;
 
 			exam._setQuestion(exam.questions[exam.currentQuestion].question);
 			exam._setOptions(exam.questions[exam.currentQuestion].choices);
-
+			exam._setBehaviorButtons();
 		});
 	},
 	getSnippets: function(callback) {
@@ -81,6 +90,38 @@ QExam.ExamModule = {
 			li.append(pre);
 			li.appendTo('#containerChoices');
 		};
+	},
+
+	_setBehaviorButtons: function() {
+		$('.choice-option').on('mouseover', function() {
+			$(this).css({'background-color': GRAY_LIGHT1});
+		});
+
+		$('.choice-option').on('mouseout', function() {
+			$(this).css({'background-color': TRANSPARENT});
+		});		
+
+		$('.choice-option').on('click', function() {
+			this.selectedAnswer = $(this).attr('data-index');
+			$('#nextQ').removeAttr('disabled');
+			$('.choice-option').removeAttr('style').off('mouseout mouseover');
+			$(this).css({'border-color':'#222','font-weight':700,'background-color':'#c1c1c1'});
+
+		});
+
+		$('#nextQ').on('click', function(e) {
+			this.disabled = true;
+			$(this).off('click');
+			console.log("btn next was pressed");
+			this._evaluateQuestion(1);
+		});
+	},
+
+	_evaluateQuestion: function(selected) {
+		this.selectedAnswer = null;
+		if(1 == 1) {
+
+		}
 	},
 
 	// lock right click and keys F12, Ctrl + Shift + I

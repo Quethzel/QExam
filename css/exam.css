@@ -1,0 +1,13 @@
+
+
+
+#containerChoices {
+	list-style-type: none;
+	padding: 10px;
+}
+
+.choice-option pre {
+	background-color: transparent;
+	padding: 5px;
+	cursor: pointer;
+}
