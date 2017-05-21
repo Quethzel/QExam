@@ -1,0 +1,74 @@
+[
+	{
+		"id": "q0",
+		"question": "JavaScript es un lenguaje de programación...",
+		"choices": [
+			{
+				"answer": "Compilado",
+				"correct": false
+			},
+			{
+				"answer": "Interpretado",
+				"correct": true
+			},
+			{
+				"answer": "No estructurado",
+				"correct": false
+			},
+			{
+				"answer": "De bajo nivel",
+				"correct": false
+			}
+		],
+		"haveSnippet": false,
+		"userAnswer": null
+	}, 
+	{
+		"id": "q1",
+		"question": "¿Cuál de las siguientes afirmaciones es verdadera?",
+		"choices": [
+			{
+				"answer": "JavaScript es una versión interpretada de Java",
+				"correct": false
+			},
+			{
+				"answer": "JavaScript es un branch que surgió de Java",
+				"correct": false
+			},
+			{
+				"answer": "JavaScript es una librería del VM de Java",
+				"correct": false
+			},
+			{
+				"answer": "JavaScript es un lenguaje interpretado",
+				"correct": true
+			}
+		],
+		"haveSnippet": false,
+		"userAnswer": null
+	}, 
+	{
+		"id": "q2",
+		"question": "La estandarización de JavaScript es realizada por",
+		"choices": [
+			{
+				"answer": "ECMA",
+				"correct": true
+			},
+			{
+				"answer": "Mozilla",
+				"correct": false
+			},
+			{
+				"answer": "W3C",
+				"correct": false
+			},
+			{
+				"answer": "The Script Consortium",
+				"correct": true
+			}
+		],
+		"haveSnippet": false,
+		"userAnswer": null
+	}
+]
