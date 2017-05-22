@@ -1,4 +1,6 @@
-
+body {
+	margin-bottom: 30px;
+}
 
 
 #choiceContainer {
@@ -10,4 +12,55 @@
 	background-color: transparent;
 	padding: 5px;
 	cursor: pointer;
+}
+
+#resultContainer {
+	max-height: 380px;
+	overflow-y: auto;
+}
+#result-exam a:hover {
+	cursor: pointer;
+}
+
+#finishExam {
+	margin-left: auto;
+	margin-right: auto;
+}
+.score {
+	text-align: center;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+}
+.fa-coffee {
+	color: #777;
+}
+.fa-coffee:hover {
+	cursor: pointer;
+	color: #482209;
+}
+/*
+	media Queries
+*/
+
+/* Landscape phones and portrait tables */
+@media (max-width: 767px) {
+	#examTitle {
+		display: none;
+	}
+}
+
+/* Portrait phones */
+@media (max-width: 480px) {
+	#examInfo {
+		display: none;
+	}
+	#counterQuestion {
+		display: none;
+	}
 }

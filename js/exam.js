@@ -37,7 +37,7 @@ QExam.ExamModule = {
 		if(this.lockDevTools) {
 			this.lockKeys();
 		}
-		//load snippets and code
+		
 		this.getSnippets(function() {
 			//console.log(this.data);
 		});
@@ -162,29 +162,57 @@ QExam.ExamModule = {
 		if(this.displayExamFinished) {
 			this._showResults();
 		}
+		
+		$(document.createElement('button'))
+			.attr('id', 'finishExam').text('Finalizar Examen')
+			.addClass('btn btn-md btn-default btn-center')
+			.css({'display': 'block'})
+			.appendTo('#extraContainer');
 
+			$('#finishExam').on('click', function() {
+				location.reload();
+			});
 	},
 
 	_showScore: function() {
 		$(document.createElement('h4'))
 			.text("Puntuación " + this.score + " sobre " + this.questions.length)
+			.addClass('score')
 			.appendTo('#questionContainer');
 
 		$(document.createElement('h4'))
 			.text(Math.round(this.score/this.questions.length * 100) + '%')
+			.addClass('score')
 			.insertAfter('#questionContainer');
 	},
 
 	_showResults: function() {
+		$(document.createElement('div')).attr('id', 'result-exam').addClass('list-group').appendTo('#resultContainer');
+
 		for (var i = 0; i < this.questions.length; i++) {
+			
 			var correctAnswers = this.questions[i].choices.filter(function (answer) { 
 				return answer.correct == true; 
 			});
 
-			$(document.createElement('p')).text('Q: ' + this.questions[i].question).appendTo('#resultContainer');
+			var incorrectAnswers = this.questions[i].choices.filter(function (answer) {
+				return answer.correct == false;
+			});
+
+			$(document.createElement('a'))
+				.addClass('list-group-item list-group-item-info')
+				.text('Q: ' + this.questions[i].question).appendTo('#result-exam');
+
+			if(!this.questions[i].choices[this.questions[i].userAnswer].correct) {
+				$(document.createElement('a'))
+					.addClass('list-group-item list-group-item-danger')
+					.text('A: ' + this.questions[i].choices[this.questions[i].userAnswer].answer).appendTo('#result-exam');
+			}
 
 			for (var j = 0; j < correctAnswers.length; j++) {
-				$(document.createElement('p')).text('A: ' + correctAnswers[j].answer).appendTo('#resultContainer');
+				$(document.createElement('a'))
+					.addClass('list-group-item list-group-item-success')
+					.text('C: ' + correctAnswers[j].answer).appendTo('#result-exam');
 			};
 		};
 	},

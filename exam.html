@@ -3,23 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="img/icon.png" type="image/png" />
 	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/exam.css">
 </head>
 <body>
+	<div class="container">
+		<h1 id="examTitle"></h1>
+		<samp id="examInfo"></samp>
+		<samp id="counterQuestion"></samp>
 
-	<h1 id="examTitle"></h1>
-	<samp id="examInfo"></samp>
-	<samp id="counterQuestion"></samp>
-
-	<div id="questionContainer"></div>
-	<div id="codeContainer"></div>
-	<div id="choiceContainer"></div>
-	<div id="controlContainer"></div>
-	<div id="resultContainer"></div>
-
+		<div id="questionContainer"></div>
+		<div id="codeContainer"></div>
+		<div id="choiceContainer"></div>
+		<div id="controlContainer"></div>
+		<div id="resultContainer"></div>
+		<div id="extraContainer"></div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">made with coffee <i class="fa fa-coffee"></i> by <a href="http://www.iamQuethzel.com">Quethzel Díaz</a> </p>
+		</div>
+	</footer>
 	<script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="vendors/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/exam.js"></script>	
