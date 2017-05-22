@@ -20,10 +20,11 @@ QExam.ExamModule = {
 	snippets: [],
 	displayTime: false,
 	displayCount: true,
-	displayAnswer: true,
+	displayExamFinished: true,
 	selectedAnswer: null,
-	lockDevTools: true,
+	lockDevTools: false,
 	currentQuestion: 0,
+	score: 0,
 
 	//methods
 	init: function() {
@@ -50,7 +51,7 @@ QExam.ExamModule = {
 		$(document.createElement('button'))
 			.attr('id', 'nextQ').text('Siguiente')
 			.attr('disabled', 'disabled')
-			.addClass('btn btn-lg btn-block').appendTo("#containerControls");
+			.addClass('btn btn-lg btn-block').appendTo("#controlContainer");
 
 		$.getJSON(this.path + this.name).done(function (data) {
 			exam.questions = data;
@@ -71,24 +72,30 @@ QExam.ExamModule = {
 	},
 
 	_setQuestion: function(question) {
-		$(document.createElement('h4'))
-			.attr('id', 'question')
-			.text(question).appendTo('#containerQuestions');
+		$('#questionContainer').empty();
+		$(document.createElement('h4')).attr('id', 'question').text(question).appendTo('#questionContainer');
+		if(this.questions[this.currentQuestion].haveSnippet) {
+			this._setCode(this.questions[currentQuestion].id);
+		}
 	},
 
-	_setCode: function() {
-
+	_setCode: function(questionId) {
+		$('#codeContainer').empty();
+		$('#codeContainer').append(this.snippets.filter('#pre' + questionId));
+		$('pre code').each(function (i, block) {
+			hljs.highlightBlock(block);
+		});
 	},
 
 	_setOptions: function(choices) {
-		$('#containerChoices').empty();
+		$('#choiceContainer').empty();
 		for (var i = 0; i < choices.length; i++) {
 			var pre = $(document.createElement('pre')).text(choices[i].answer);
 			var li = $(document.createElement('li'));
 			li.addClass('choice-option')
 			li.attr('data-index', i)
 			li.append(pre);
-			li.appendTo('#containerChoices');
+			li.appendTo('#choiceContainer');
 		};
 	},
 
@@ -102,26 +109,88 @@ QExam.ExamModule = {
 		});		
 
 		$('.choice-option').on('click', function() {
-			this.selectedAnswer = $(this).attr('data-index');
+			QExam.ExamModule.selectedAnswer = $(this).attr('data-index');
 			$('#nextQ').removeAttr('disabled');
 			$('.choice-option').removeAttr('style').off('mouseout mouseover');
-			$(this).css({'border-color':'#222','font-weight':700,'background-color':'#c1c1c1'});
+			$(this).css({'border-color':'#222','font-weight':700,'background-color':GRAY_LIGHT1});
 
 		});
 
 		$('#nextQ').on('click', function(e) {
+			var thisModule = QExam.ExamModule;
 			this.disabled = true;
 			$(this).off('click');
-			console.log("btn next was pressed");
-			this._evaluateQuestion(1);
+			thisModule._evaluateQuestion(thisModule.selectedAnswer);
 		});
 	},
 
 	_evaluateQuestion: function(selected) {
-		this.selectedAnswer = null;
-		if(1 == 1) {
+		var thisModule = QExam.ExamModule;
+		var current = thisModule.currentQuestion;
+		
+		thisModule.selectedAnswer = null;
+		thisModule.questions[current].userAnswer = selected;
 
+		if(thisModule.questions[current].choices[selected].correct) {
+			thisModule.score ++;
 		}
+		if(current == thisModule.questions.length-1) {
+			thisModule._endExam();
+		} 
+		else {
+			thisModule.currentQuestion++;
+			if(thisModule.displayCount) {
+				thisModule._updateCounterQuestion();
+			}
+			thisModule._nextQuestion();
+		}
+	},
+
+	_nextQuestion: function() {
+		this._setQuestion(this.questions[this.currentQuestion].question);
+		this._setOptions(this.questions[this.currentQuestion].choices);
+		this._setBehaviorButtons();
+	},
+
+	_endExam: function() {
+		$('#questionContainer').empty();
+		$('#codeContainer').empty();
+		$('#choiceContainer').empty();
+		$('#controlContainer').empty();
+		this._showScore();
+
+		if(this.displayExamFinished) {
+			this._showResults();
+		}
+
+	},
+
+	_showScore: function() {
+		$(document.createElement('h4'))
+			.text("Puntuación " + this.score + " sobre " + this.questions.length)
+			.appendTo('#questionContainer');
+
+		$(document.createElement('h4'))
+			.text(Math.round(this.score/this.questions.length * 100) + '%')
+			.insertAfter('#questionContainer');
+	},
+
+	_showResults: function() {
+		for (var i = 0; i < this.questions.length; i++) {
+			var correctAnswers = this.questions[i].choices.filter(function (answer) { 
+				return answer.correct == true; 
+			});
+
+			$(document.createElement('p')).text('Q: ' + this.questions[i].question).appendTo('#resultContainer');
+
+			for (var j = 0; j < correctAnswers.length; j++) {
+				$(document.createElement('p')).text('A: ' + correctAnswers[j].answer).appendTo('#resultContainer');
+			};
+		};
+	},
+
+	_updateCounterQuestion: function() {
+
 	},
 
 	// lock right click and keys F12, Ctrl + Shift + I
