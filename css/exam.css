@@ -1,6 +1,15 @@
 body {
 	margin-bottom: 30px;
 }
+hr {
+	border-color: #3f3f3f;
+	background-color: #3f3f3f;
+}
+
+.sign-in {
+	max-width: 380px;
+	margin: 280px auto 0;
+}
 
 
 #choiceContainer {

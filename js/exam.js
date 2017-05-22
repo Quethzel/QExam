@@ -170,7 +170,7 @@ QExam.ExamModule = {
 			.appendTo('#extraContainer');
 
 			$('#finishExam').on('click', function() {
-				location.reload();
+				window.location.replace('index.html');
 			});
 	},
 
