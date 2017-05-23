@@ -23,6 +23,7 @@ QExam.ExamModule = {
 	displayExamFinished: true,
 	selectedAnswer: null,
 	lockDevTools: false,
+	f12wasPressed: false,
 	currentQuestion: 0,
 	score: 0,
 
@@ -157,10 +158,15 @@ QExam.ExamModule = {
 		$('#codeContainer').empty();
 		$('#choiceContainer').empty();
 		$('#controlContainer').empty();
+		
 		this._showScore();
 
 		if(this.displayExamFinished) {
 			this._showResults();
+		}
+
+		if(this.saveOnFiredb) {
+			QExam.firedb
 		}
 		
 		$(document.createElement('button'))
@@ -225,6 +231,7 @@ QExam.ExamModule = {
 	lockKeys: function() {
 		$(document).keydown(function(event) {
 		    if(event.keyCode == 123) {
+		    	this.f12wasPressed = true;
 		    	console.log('Las herramientas de desarrollador no son requeridas en este examen');
 		        return false;
 		    }
@@ -245,15 +252,59 @@ QExam.ExamModule = {
 /*
  * firebase namespace
 */
-QExam.firedb = {};
+QExam.firedb = {
+	config: {
+	    apiKey: "AIzaSyBQuNtJb8_2B73__lyeV4iLcPnz0U5w6Cg",
+	    authDomain: "jsexam-b9436.firebaseapp.com",
+	    databaseURL: "https://jsexam-b9436.firebaseio.com",
+	    projectId: "jsexam-b9436",
+	    storageBucket: "jsexam-b9436.appspot.com",
+	    messagingSenderId: "94780519527"		
+	},
+	ref: null,
+
+	init: function() {
+		firebase.initializeApp(this.config);
+		this.ref = firebase.database().ref('exam');
+	},
+	saveResults: function(data) {
+		this.ref.push(data);
+		console.log("data saved!");
+	}
+
+};
 
 
+/*
+ * user
+*/
+QExam.user = {
+	profile: {
+		name: null
+	},
+	exam: {
+		id: null,
+		description: null,
+		score: 0
+	},
+
+	setProfile: function(data) {
+		this.profile.name = data.name;
+	},
+	setExam: function(data) {
+		this.exam.id = data.id;
+		this.exam.description = data.description;
+		this.exam.score = data.score;
+	}
+}
 
 
 
 /* implementation */
-
 $(document).ready(function() {
 	QExam.ExamModule.init();
+	QExam.firedb.init();
+
+	QExam.user.setProfile = localStorage.getItem('dataUser');
 });
 

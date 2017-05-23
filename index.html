@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/exam.css">
-	<style type="text/css">
+	<!-- <style type="text/css">
 		body {
 			background-color: #1D1D1D;
 			color: #CCC;
@@ -25,7 +25,7 @@
 		.input-group button:hover {
 			color: #FFF;
 		}
-	</style>	
+	</style> -->
 </head>
 <body>
 	<div class="container">
@@ -45,6 +45,7 @@
 			<p class="text-muted">made with coffee <i class="fa fa-coffee"></i> by <a href="http://www.iamQuethzel.com">Quethzel Díaz</a> </p>
 		</div>
 	</footer>
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 	<script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="vendors/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/exam.js"></script>
@@ -55,6 +56,12 @@
 		});		
 
 		function starExam() {
+			var userProfile = {
+				name: $("#user").val()
+			};
+			localStorage.setItem('dataUser', $("#user").val());
+			//QExam.user.setProfile(userProfile);
+
 			window.location.replace('exam.html');
 		}
 	</script>
