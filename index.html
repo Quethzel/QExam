@@ -29,7 +29,8 @@
 </head>
 <body>
 	<div class="container">
-		<div class="sign-in">
+
+		<div id="sign-in">
 			<samp>Basic JavaScript Skills</samp><hr/>
 			<div class="input-group">
 				<input type="text" id="user" class="form-control" placeholder="nombre" autofocus>
@@ -39,10 +40,21 @@
 			</div>
 		</div>
 
+		<div id="exam">
+			<h1 id="examTitle"></h1>
+			<samp id="examInfo"></samp>
+			<samp id="counterQuestion"></samp>
+			<div id="questionContainer"></div>
+			<div id="codeContainer"></div>
+			<div id="choiceContainer"></div>
+			<div id="controlContainer"></div>
+			<div id="resultContainer"></div>
+			<div id="extraContainer"></div>
+		</div>
 	</div>
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">made with coffee <i class="fa fa-coffee"></i> by <a href="http://www.iamQuethzel.com">Quethzel Díaz</a> </p>
+			<p class="text-muted">made with coffee <i class="fa fa-coffee"></i> by <a href="http://www.iamQuethzel.com">Quethzel Díaz</a></p>
 		</div>
 	</footer>
 	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
@@ -50,19 +62,26 @@
 	<script type="text/javascript" src="vendors/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/exam.js"></script>
 	<script type="text/javascript">
-		$('#user').keyup(function(e) {
-			if(e.keyCode == 13)
-				$('#starButton').click();
-		});		
+		$(document).ready(function() {
+			$('#exam').css('display', 'none');
+
+			$('#user').keyup(function(e) {
+				if(e.keyCode == 13)
+					$('#starButton').click();
+			});
+		});
 
 		function starExam() {
+			$('#sign-in').css('display', 'none');
+			$('#exam').css('display', 'block');
+
 			var userProfile = {
 				name: $("#user").val()
 			};
-			localStorage.setItem('dataUser', $("#user").val());
-			//QExam.user.setProfile(userProfile);
 
-			window.location.replace('exam.html');
+			/* implementarion of QEx */
+			QEx.ExamModule.init();
+			QEx.user.setProfile(userProfile);
 		}
 	</script>
 </body>

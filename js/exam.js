@@ -1,14 +1,14 @@
-/* QExam namespace */
-var QExam = {};
+/** QEx Namespace */
+var QEx = {};
 	
 var GRAY_LIGHT1 = "#ECECEC";
 var TRANSPARENT = "transparent";
 
 
-/* 
-	exam namespace
+/* *
+	Exam Namespace
 */
-QExam.ExamModule = {
+QEx.ExamModule = {
 	// config
 	id : "EXA-JS001",
 	title: "Exam Js",
@@ -26,6 +26,7 @@ QExam.ExamModule = {
 	f12wasPressed: false,
 	currentQuestion: 0,
 	score: 0,
+	linkedToFiredb: true,
 
 	//methods
 	init: function() {
@@ -39,6 +40,10 @@ QExam.ExamModule = {
 			this.lockKeys();
 		}
 		
+		if(this.linkedToFiredb) {
+			QEx.firedb.init();
+		}
+
 		this.getSnippets(function() {
 			//console.log(this.data);
 		});
@@ -110,7 +115,7 @@ QExam.ExamModule = {
 		});		
 
 		$('.choice-option').on('click', function() {
-			QExam.ExamModule.selectedAnswer = $(this).attr('data-index');
+			QEx.ExamModule.selectedAnswer = $(this).attr('data-index');
 			$('#nextQ').removeAttr('disabled');
 			$('.choice-option').removeAttr('style').off('mouseout mouseover');
 			$(this).css({'border-color':'#222','font-weight':700,'background-color':GRAY_LIGHT1});
@@ -118,7 +123,7 @@ QExam.ExamModule = {
 		});
 
 		$('#nextQ').on('click', function(e) {
-			var thisModule = QExam.ExamModule;
+			var thisModule = QEx.ExamModule;
 			this.disabled = true;
 			$(this).off('click');
 			thisModule._evaluateQuestion(thisModule.selectedAnswer);
@@ -126,7 +131,7 @@ QExam.ExamModule = {
 	},
 
 	_evaluateQuestion: function(selected) {
-		var thisModule = QExam.ExamModule;
+		var thisModule = QEx.ExamModule;
 		var current = thisModule.currentQuestion;
 		
 		thisModule.selectedAnswer = null;
@@ -159,14 +164,18 @@ QExam.ExamModule = {
 		$('#choiceContainer').empty();
 		$('#controlContainer').empty();
 		
+		this.score = Math.round(this.score/this.questions.length * 100);
 		this._showScore();
+		
+		QEx.user.setExam(this);
 
 		if(this.displayExamFinished) {
 			this._showResults();
 		}
 
-		if(this.saveOnFiredb) {
-			QExam.firedb
+		if(this.linkedToFiredb) {
+			var data = QEx.user.getDataUser();
+			QEx.firedb.saveResults(data);
 		}
 		
 		$(document.createElement('button'))
@@ -182,14 +191,9 @@ QExam.ExamModule = {
 
 	_showScore: function() {
 		$(document.createElement('h4'))
-			.text("Puntuación " + this.score + " sobre " + this.questions.length)
+			.text("Puntuación " + this.score + "%")
 			.addClass('score')
 			.appendTo('#questionContainer');
-
-		$(document.createElement('h4'))
-			.text(Math.round(this.score/this.questions.length * 100) + '%')
-			.addClass('score')
-			.insertAfter('#questionContainer');
 	},
 
 	_showResults: function() {
@@ -212,13 +216,13 @@ QExam.ExamModule = {
 			if(!this.questions[i].choices[this.questions[i].userAnswer].correct) {
 				$(document.createElement('a'))
 					.addClass('list-group-item list-group-item-danger')
-					.text('A: ' + this.questions[i].choices[this.questions[i].userAnswer].answer).appendTo('#result-exam');
+					.text('UA: ' + this.questions[i].choices[this.questions[i].userAnswer].answer).appendTo('#result-exam');
 			}
 
 			for (var j = 0; j < correctAnswers.length; j++) {
 				$(document.createElement('a'))
 					.addClass('list-group-item list-group-item-success')
-					.text('C: ' + correctAnswers[j].answer).appendTo('#result-exam');
+					.text('CA: ' + correctAnswers[j].answer).appendTo('#result-exam');
 			};
 		};
 	},
@@ -227,8 +231,8 @@ QExam.ExamModule = {
 
 	},
 
-	// lock right click and keys F12, Ctrl + Shift + I
 	lockKeys: function() {
+		// lock right click and keys F12, Ctrl + Shift + I
 		$(document).keydown(function(event) {
 		    if(event.keyCode == 123) {
 		    	this.f12wasPressed = true;
@@ -249,10 +253,10 @@ QExam.ExamModule = {
 };
 
 
-/*
- * firebase namespace
+/**
+ * Firebase Namespace
 */
-QExam.firedb = {
+QEx.firedb = {
 	config: {
 	    apiKey: "AIzaSyBQuNtJb8_2B73__lyeV4iLcPnz0U5w6Cg",
 	    authDomain: "jsexam-b9436.firebaseapp.com",
@@ -271,14 +275,13 @@ QExam.firedb = {
 		this.ref.push(data);
 		console.log("data saved!");
 	}
-
 };
 
 
-/*
- * user
-*/
-QExam.user = {
+/**
+ * User Namescpace
+ */
+QEx.user = {
 	profile: {
 		name: null
 	},
@@ -295,16 +298,8 @@ QExam.user = {
 		this.exam.id = data.id;
 		this.exam.description = data.description;
 		this.exam.score = data.score;
+	},
+	getDataUser: function() {
+		return $.extend({}, this.profile, this.exam);
 	}
-}
-
-
-
-/* implementation */
-$(document).ready(function() {
-	QExam.ExamModule.init();
-	QExam.firedb.init();
-
-	QExam.user.setProfile = localStorage.getItem('dataUser');
-});
-
+};
