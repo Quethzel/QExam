@@ -6,6 +6,14 @@ hr {
 	background-color: #3f3f3f;
 }
 
+#menu {
+	float: right;
+}
+#menu a {
+	color: #3f3f3f;
+}
+#menu a:visited { color: #3f3f3f;}
+
 #sign-in {
 	max-width: 380px;
 	margin: 280px auto 0;
@@ -53,6 +61,8 @@ hr {
 	cursor: pointer;
 	color: #482209;
 }
+
+
 /*
 	media Queries
 */
@@ -71,5 +81,49 @@ hr {
 	}
 	#counterQuestion {
 		display: none;
+	}
+}
+
+/*
+	no more tables
+*/
+@media only screen and (max-width: 800px) {
+	#no-more-tables table,
+	#no-more-tables thead,
+	#no-more-tables tbody,
+	#no-more-tables th,
+	#no-more-tables td,
+	#no-more-tables tr {
+		display: block;
+	}
+	#no-more-tables thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	#no-more-tables tr {
+		border: 1px solid #ccc;
+	}
+	#no-more-tables td {
+		/* Behave  like a "row" */
+		border: none;
+		position: relative;
+		padding-left: 50%;
+		white-space: normal;
+		text-align: left;
+		min-height: 30px;
+	}
+	#no-more-tables td:before {
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
+	}
+	#no-more-tables td:before {
+		content: attr(data-title);
 	}
 }
