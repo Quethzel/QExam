@@ -1,5 +1,6 @@
 body {
 	margin-bottom: 30px;
+	background-color: #F0F2F5;
 }
 hr {
 	border-color: #3f3f3f;
@@ -7,12 +8,15 @@ hr {
 }
 
 #menu {
-	float: right;
+	width: 100%;
+	text-align: right;
 }
 #menu a {
+	cursor: pointer;
 	color: #3f3f3f;
 }
 #menu a:visited { color: #3f3f3f;}
+
 
 #sign-in {
 	max-width: 380px;
@@ -35,6 +39,7 @@ hr {
 	max-height: 380px;
 	overflow-y: auto;
 }
+
 #result-exam a:hover {
 	cursor: pointer;
 }
@@ -45,6 +50,33 @@ hr {
 }
 .score {
 	text-align: center;
+}
+
+/*
+	results table 
+*/
+#results th {
+	border: none;
+}
+#row-results td {
+	border: none;
+}
+
+/*
+	about section
+*/
+#about {
+	font-family: monospace;
+	max-width: 400px;
+	margin: 280px auto 0;
+}
+#about h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 2em;
+}
+#about td {
+	border: none;
 }
 
 .footer {
