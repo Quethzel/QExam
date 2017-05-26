@@ -39,9 +39,6 @@ QEx.ExamModule = {
 		if(this.lockDevTools) {
 			this.lockKeys();
 		}
-		if(this.linkedToFiredb) {
-			QEx.firedb.init();
-		}
 
 		this.getSnippets(function() {
 			//console.log(this.data);
@@ -276,41 +273,36 @@ QEx.firedb = {
 	},
 	getAllResults: function() {
 		$('#row-results').empty();
-
-		var users = [
-			{'user': 'Jhon Doe', 'exam': 'EXA-JS001', 'score': '100%'},
-			{'user': 'Wendy Clapton', 'exam': 'EXA-JS001', 'score': '96%'},
-			{'user': 'Jane Doe', 'exam': 'EXA-JS001', 'score': '88%'},
-			{'user': 'Eli Page', 'exam': 'EXA-JS001', 'score': '96%'},
-			{'user': 'Susy Mackenly', 'exam': 'EXA-JS001', 'score': '86%'},
-			{'user': 'Jhon Jones', 'exam': 'EXA-JS001', 'score': '83%'}
-		];
-
-		for (var i = 0; i < users.length; i++) {
-			var tr = $(document.createElement('tr')).attr('id', 'row' + i);
-			var user = users[i].user;
-			var exam = users[i].exam;
-			var score = users[i].score;
-
-			$(document.createElement('td')).attr('data-title', 'User').text(user).appendTo(tr);
-			$(document.createElement('td')).attr('data-title', 'Exam').text(exam).appendTo(tr);
-			$(document.createElement('td')).attr('data-title', 'Score').text(score).appendTo(tr);
-			tr.appendTo('#row-results');
-		};
-
-		/* var users = data.val();
+		this.ref.on('value', this.getData, this.errData);
+	},
+	getData: function(data) {
+		var results = [];
+		var users = data.val();
 		var keys = Object.keys(users);
-		var tr = $(document.createElement('tr'));
 		
 		for (var i = 0; i < keys.length; i++) {
 			var k = keys[i];
-			var name = users[k].name;
-			var exam = users[k].exam;
-			var score = users[k].score;
-			$(document.createElement('td')).attr('data-title', name).text(name).appendTo(tr);
+			var userInfo = {
+				name: users[k].name,
+				exam: users[k].id,
+				score: users[k].score
+			};
+			results.push(userInfo);
+		}
+
+		results.sort(function(a, b) {
+		    return parseFloat(a.score) - parseFloat(b.score);
+		});
+
+		for (var i = results.length - 1; i >= 0; i--) {
+			var tr = $(document.createElement('tr')).attr('id', 'row' + i);
+		 	$(document.createElement('td')).attr('data-title', 'User').text(results[i].name).appendTo(tr);
+		 	$(document.createElement('td')).attr('data-title', 'Exam').text(results[i].exam).appendTo(tr);
+		 	$(document.createElement('td')).attr('data-title', 'Score').text(results[i].score + "%").appendTo(tr);
+		 	tr.appendTo('#row-results');
 		};
-		tr.appendTo('#row-results');
-		*/
+
+		$('#row-results').children('tr:first').css( {'font-weight': 'bolder', 'color': '#4183C4'});
 	}
 };
 

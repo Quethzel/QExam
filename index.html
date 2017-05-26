@@ -88,6 +88,10 @@
 				if(e.keyCode == 13)
 					$('#starButton').click();
 			});
+
+			if(QEx.ExamModule.linkedToFiredb) {
+				QEx.firedb.init();
+			}			
 		});
 
 		function starExam() {
