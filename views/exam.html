@@ -1,11 +1,59 @@
 <div id="exam">
-	<h1 id="examTitle"></h1>
-	<samp id="examInfo"></samp>
-	<samp id="counterQuestion"></samp>
+	<!-- <h1 id="examTitle"></h1> -->
+	<div id="examInfo">
+		<samp id="descriptionExam"></samp>
+		<samp id="counterQuestion"></samp>
+	</div>
 	<div id="questionContainer"></div>
 	<div id="codeContainer"></div>
 	<div id="choiceContainer"></div>
 	<div id="controlContainer"></div>
+	
 	<div id="resultContainer"></div>
-	<div id="extraContainer"></div>
+	<div id="rewardContainer"></div>
+	<div id="extraContainer">
+		<button class="btn btn-md btn-default" ui-sref="login">Finish Exam</button>
+
+		<button id="shareOnFacebook" style="display:none;" class="btn btn-md btn-primary" 
+			data-toggle="modal" 
+			data-target="#myModal">
+			Share <i class="fa fa-facebook"></i>
+		</button>
+	</div>
 </div>
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Seriously?</h4>
+      </div>
+      <div class="modal-body">
+        <p style="font-weight:bolder;">Don't be ridiculous and get to work!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">I really want to share it</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">I can't belive it</h4>
+      </div>
+      <div class="modal-body">
+        <p style="font-weight:bolder;">Jajaja</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

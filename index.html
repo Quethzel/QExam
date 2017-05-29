@@ -12,7 +12,7 @@
 </head>
 <body ng-controller="AppController">
 	<div class="container">
-		<div id="menu">
+		<div id="menu" ng-if="showMenu">
 			<a ui-sref="login"><samp>Home</samp></a> | 
 			<a ui-sref="results"><samp>Show Exam Results</samp></a> | 
 			<a ui-sref="about"><samp>About QEx</samp></a>
@@ -31,6 +31,8 @@
 	<script type="text/javascript" src="vendors/angular1.5.9.min.js"></script>
 	<script type="text/javascript" src="vendors/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="vendors/angular-route.min.js"></script>
+	<script type="text/javascript" src="vendors/angular-sanitize.min.js"></script>
+
 	<!-- libraries -->
 	<script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="vendors/bootstrap-3.3.7/js/bootstrap.min.js"></script>

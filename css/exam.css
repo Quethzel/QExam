@@ -20,9 +20,12 @@ hr {
 
 #sign-in {
 	max-width: 380px;
-	margin: 280px auto 0;
+	margin: 200px auto 0;
 }
 
+#examInfo {
+	margin: 25px 0 20px;
+}
 
 #choiceContainer {
 	list-style-type: none;
@@ -48,6 +51,13 @@ hr {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+#extraContainer {
+	margin-top: 20px;
+	text-align: center;
+}
+
 .score {
 	text-align: center;
 }
@@ -61,14 +71,17 @@ hr {
 #row-results td {
 	border: none;
 }
-
+#row-results tr:first-child {
+	color: #D2900F;
+	font-weight: bold;
+}
 /*
 	about section
 */
 #about {
 	font-family: monospace;
 	max-width: 400px;
-	margin: 280px auto 0;
+	margin: 200px auto 0;
 }
 #about h1 {
 	text-align: center;
@@ -109,9 +122,6 @@ hr {
 /* Portrait phones */
 @media (max-width: 480px) {
 	#examInfo {
-		display: none;
-	}
-	#counterQuestion {
 		display: none;
 	}
 }

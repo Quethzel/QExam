@@ -1,9 +1,13 @@
-<div id="sign-in">
+<form id="sign-in" name="loginForm">
 	<samp>Basic JavaScript Skills</samp><hr/>
 	<div class="input-group">
-		<input type="text" id="user" class="form-control" placeholder="name or email" required autofocus>
+		<input type="text" id="user" name="username" class="form-control" ng-model="user.username" placeholder="name or email" ng-minlength="2" required autofocus>
 		<span class="input-group-btn">
 			<button type="button" id="starButton" class="btn btn-secondary" ng-click="starExam();">Start</button>
 		</span>
 	</div>
-</div>
+	<div style="margin-top:3px;">
+		<p ng-show="submitted && loginForm.username.$error.required" class="alert-danger">You name or email is required.</p>
+		<p ng-show="submitted && loginForm.username.$error.minlength" class="alert-danger">You name or email is too short.</p>
+	</div>
+</form>

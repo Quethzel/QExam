@@ -27,11 +27,16 @@ QEx.ExamModule = {
 	currentQuestion: 0,
 	score: 0,
 	linkedToFiredb: true,
+	sarcasticMode: true,
 
 	//methods
 	init: function() {
-		$('#examTitle').text(this.title);
-		$('#examInfo').text(this.id + ' | ' + this.description);
+		this.currentQuestion = 0;
+		this.score = 0;
+
+		$('#extraContainer').css('display', 'none');
+		//$('#examTitle').text(this.title);
+		$('#descriptionExam').text(this.id + ' | ' + this.description);
 		
 		if(this.displayCount) {
 			$('#counterQuestion').text(' | Question ' + this.currentQuestion + ' To ' + this.questions.length);
@@ -163,7 +168,13 @@ QEx.ExamModule = {
 		this.score = Math.round(this.score/this.questions.length * 100);
 		this._showScore();
 		
-		QEx.user.setExam(this);
+		var dataUserExam = {}
+		dataUserExam.id = this.id;
+		dataUserExam.description = this.description;
+		dataUserExam.score = this.score;
+		dataUserExam.date = new Date();
+
+		QEx.user.setExam(dataUserExam);
 
 		if(this.displayExamFinished) {
 			this._showResults();
@@ -174,20 +185,16 @@ QEx.ExamModule = {
 			QEx.firedb.saveResults(data);
 		}
 		
-		$(document.createElement('button'))
-			.attr('id', 'finishExam').text('Finalizar Examen')
-			.addClass('btn btn-md btn-default btn-center')
-			.css({'display': 'block'})
-			.appendTo('#extraContainer');
+		$('#extraContainer').css('display','block');
 
-			$('#finishExam').on('click', function() {
-				window.location.replace('index.html');
-			});
+		if(this.sarcasticMode) {
+			$('#shareOnFacebook').show();
+		}
 	},
 
 	_showScore: function() {
 		$(document.createElement('h4'))
-			.text("Puntuación " + this.score + "%")
+			.text("Your Score " + this.score + "%")
 			.addClass('score')
 			.appendTo('#questionContainer');
 	},
@@ -261,6 +268,7 @@ QEx.firedb = {
 	    storageBucket: "jsexam-b9436.appspot.com",
 	    messagingSenderId: "94780519527"		
 	},
+	dataScore: [],
 	ref: null,
 
 	init: function() {
@@ -272,10 +280,13 @@ QEx.firedb = {
 		console.log("data saved!");
 	},
 	getAllResults: function() {
-		$('#row-results').empty();
+		if(this.ref == null) {
+			this.init();
+		}
 		this.ref.on('value', this.getData, this.errData);
 	},
 	getData: function(data) {
+		$('#row-results').empty();
 		var results = [];
 		var users = data.val();
 		var keys = Object.keys(users);
@@ -293,16 +304,17 @@ QEx.firedb = {
 		results.sort(function(a, b) {
 		    return parseFloat(a.score) - parseFloat(b.score);
 		});
-
+		this.dataScore = results;
+		
+		
 		for (var i = results.length - 1; i >= 0; i--) {
 			var tr = $(document.createElement('tr')).attr('id', 'row' + i);
-		 	$(document.createElement('td')).attr('data-title', 'User').text(results[i].name).appendTo(tr);
+		 	$(document.createElement('td')).attr('data-title', 'User').text(results[i].name + " ").appendTo(tr);
 		 	$(document.createElement('td')).attr('data-title', 'Exam').text(results[i].exam).appendTo(tr);
 		 	$(document.createElement('td')).attr('data-title', 'Score').text(results[i].score + "%").appendTo(tr);
 		 	tr.appendTo('#row-results');
 		};
-
-		$('#row-results').children('tr:first').css( {'font-weight': 'bolder', 'color': '#4183C4'});
+		$('#row-results tr td:first').append($(document.createElement('i')).addClass("fa fa-trophy"));
 	}
 };
 
@@ -317,7 +329,8 @@ QEx.user = {
 	exam: {
 		id: null,
 		description: null,
-		score: 0
+		score: 0,
+		date: null
 	},
 
 	setProfile: function(data) {
@@ -327,8 +340,13 @@ QEx.user = {
 		this.exam.id = data.id;
 		this.exam.description = data.description;
 		this.exam.score = data.score;
+		this.exam.date = this._convertDateToString(data.date);
 	},
 	getDataUser: function() {
 		return $.extend({}, this.profile, this.exam);
+	},
+	_convertDateToString: function(date) {
+		return date.toLocaleString();
 	}
+
 };
