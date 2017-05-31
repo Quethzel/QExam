@@ -79,8 +79,8 @@ App.controller('resultsCtrl', function($scope, $state) {
 
 App.controller('aboutCtrl', function($scope, $state) {
     $scope.version = {
-        system: "1.1.1",
+        system: "1.1.2",
         database: "4.0.0 firedb",
-        date: "28.05.2017 6:33 a.m."
+        date: "30.05.2017 11:27 p.m."
     };
 });
