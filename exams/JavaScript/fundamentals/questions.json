@@ -36,7 +36,7 @@
 				"correct": false
 			},
 			{
-				"answer": "JavaScript es una librería del VM de Java",
+				"answer": "JavaScript es una librería de la maquina virtual de Java",
 				"correct": false
 			},
 			{
@@ -137,15 +137,15 @@
 	},
 	{
 		"id": "q6",
-		"question": "¿JavaScript es case sensitive?",
+		"question": "¿JavaScript es sensible a mayúsculas y minúsculas?",
 		"choices": [
 			{
 				"answer": "Si",
-				"correct": false
+				"correct": true
 			},
 			{
 				"answer": "No",
-				"correct": true
+				"correct": false
 			},
 			{
 				"answer": "A veces",
@@ -156,7 +156,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q8",
+		"id": "q7",
 		"question": "¿DOM es el acrónimo de?",
 		"choices": [
 			{
@@ -180,7 +180,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q9",
+		"id": "q8",
 		"question": "¿JavaScript es un lenguaje orientado a objetos?",
 		"choices": [
 			{
@@ -300,19 +300,19 @@
 		"question": "¿Qué sentencia se utiliza para condicionar que la variable x sea diferente de 3?",
 		"choices": [
 			{
-				"answer": "if(x <> 3) { }",
+				"answer": "if(x <> 3) {... }",
 				"correct": false
 			},
 			{
-				"answer": "if(x != 3) { }",
+				"answer": "if(x != 3) {... }",
 				"correct": true
 			},
 			{
-				"answer": "if(x =! 3) { }",
+				"answer": "if(x =! 3) {... }",
 				"correct": false
 			},
 			{
-				"answer": "if x != 3 then",
+				"answer": "if x != 3 then...",
 				"correct": false
 			}			
 		],
@@ -321,7 +321,7 @@
 	},
 	{
 		"id": "q14",
-		"question": "¿Cómo calculas el máximo de 2 números?",
+		"question": "¿Qúe metodo de JavaScript utilizarias para calcular el máximo de 2 números?",
 		"choices": [
 			{
 				"answer": "Math.top(5,7)",
@@ -329,11 +329,11 @@
 			},
 			{
 				"answer": "Math.max(5,7)",
-				"correct": false
+				"correct": true
 			},
 			{
 				"answer": "Math.getMax(5,7)",
-				"correct": true
+				"correct": false
 			},
 			{
 				"answer": "Math.ceil(5,7)",
@@ -369,7 +369,7 @@
 	},
 	{
 		"id": "q16",
-		"question": "¿El resultado de evaluar la expresión if(1 == '1') que devuelve?",
+		"question": "El resultado de evaluar la expresión if(1 == '1') que devuelve...",
 		"choices": [
 			{
 				"answer": "true",
@@ -384,7 +384,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q15",
+		"id": "q17",
 		"question": "¿Cómo se declara una función en JavaScript?",
 		"choices": [
 			{
@@ -408,32 +408,24 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q16",
-		"question": "¿Cómo se manda a llamar la función employees?",
+		"id": "q18",
+		"question": "¿La palabra reservada var puede ser utilizada para declarar variables locales y globales?",
 		"choices": [
 			{
-				"answer": "employees()",
+				"answer": "verdadero",
 				"correct": true
 			},
 			{
-				"answer": "$(employees)",
+				"answer": "falso",
 				"correct": false
-			},
-			{
-				"answer": "call employees()",
-				"correct": false
-			},
-			{
-				"answer": "function.employees()",
-				"correct": false
-			}			
+			}
 		],
 		"haveSnippet": false,
 		"userAnswer": null
 	},
 	{
-		"id": "q17",
-		"question": "¿Cómo se obtiene la longitud de una cadena?",
+		"id": "q19",
+		"question": "¿Que función se utiliza para obtiene la longitud de una cadena?",
 		"choices": [
 			{
 				"answer": "count('cadena');",
@@ -452,7 +444,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q18",
+		"id": "q20",
 		"question": "¿Cuál es el resultado del siguiente código?",
 		"choices": [
 			{
@@ -461,22 +453,22 @@
 			},
 			{
 				"answer": "undefined",
-				"correct": true
+				"correct": false
 			},
 			{
-				"answer": "''",
+				"answer": "ReferenceError",
 				"correct": false
 			},
 			{
 				"answer": "0",
-				"correct": false
+				"correct": true
 			}			
 		],
 		"haveSnippet": true,
 		"userAnswer": null
 	},
 	{
-		"id": "q19",
+		"id": "q21",
 		"question": "¿Qué devuelve el siguiente código?",
 		"choices": [
 			{
@@ -492,31 +484,31 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q20",
+		"id": "q22",
 		"question": "¿Que devuelve la ejecución del siguiente código?",
 		"choices": [
 			{
-				"answer": "ReferenceError",
-				"correct": false
+				"answer": "undefined, ReferenceError",
+				"correct": true
 			},
 			{
-				"answer": "0",
-				"correct": true
+				"answer": "undefined, undefined",
+				"correct": false
 			},			
 			{
-				"answer": "undefined",
+				"answer": "null, null",
 				"correct": false
 			},
 			{
-				"answer": "null",
+				"answer": "null, undefined",
 				"correct": false
 			}			
 		],
-		"haveSnippet": false,
+		"haveSnippet": true,
 		"userAnswer": null
 	},
 	{
-		"id": "q21",
+		"id": "q23",
 		"question": "¿Cual de las siguientes expresiones devuelve false?",
 		"choices": [
 			{
@@ -540,7 +532,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q22",
+		"id": "q24",
 		"question": "¿Cuál de las siguientes afirmaciones es falsa respecto a null y undefined?",
 		"choices": [
 			{
@@ -564,7 +556,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q23",
+		"id": "q25",
 		"question": "¿Qué operador se utiliza para conocer el tipo de una variable u objeto?",
 		"choices": [
 			{
@@ -588,7 +580,7 @@
 		"userAnswer": null
 	},
 	{
-		"id": "q24",
+		"id": "q26",
 		"question": "¿Cuál de las siguientes afirmaciones es verdadera respecto a los operadores == y === ?",
 		"choices": [
 			{
