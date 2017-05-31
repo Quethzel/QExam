@@ -19,14 +19,14 @@ QEx.ExamModule = {
 	snippetName: "snippets.html",
 	snippets: [],
 	displayTime: false,
-	displayCount: true,
+	displayCount: false,
 	displayExamFinished: true,
 	selectedAnswer: null,
 	lockDevTools: false,
 	f12wasPressed: false,
 	currentQuestion: 0,
 	score: 0,
-	linkedToFiredb: true,
+	linkedToFiredb: false,
 	sarcasticMode: true,
 
 	//methods
@@ -45,10 +45,6 @@ QEx.ExamModule = {
 			this.lockKeys();
 		}
 
-		this.getSnippets(function() {
-			//console.log(this.data);
-		});
-
 		this.getExam();
 	},
 
@@ -60,35 +56,34 @@ QEx.ExamModule = {
 			.attr('disabled', 'disabled')
 			.addClass('btn btn-lg btn-block').appendTo("#controlContainer");
 
-		$.getJSON(this.path + this.name).done(function (data) {
+		$.getJSON(this.path + this.name)
+		.done(function (data) {
 			exam.questions = data;
 
+			exam._getSnippets();
 			exam._setQuestion(exam.questions[exam.currentQuestion].question);
 			exam._setOptions(exam.questions[exam.currentQuestion].choices);
 			exam._setBehaviorButtons();
 		});
 	},
-	getSnippets: function(callback) {
-		var dataSnippets = this.snippets;
+	_getSnippets: function() {
+		var exam = this;
 		$.get(this.path + this.snippetName, function(data) {
-			dataSnippets.data = $($.parseHTML(data)).filter('pre');
-			if(callback) {
-				callback.apply(dataSnippets);
-			}
+			exam.snippets = $($.parseHTML(data)).filter('pre');
 		});
 	},
 
 	_setQuestion: function(question) {
 		$('#questionContainer').empty();
+		$('#codeContainer').empty();
 		$(document.createElement('h4')).attr('id', 'question').text(question).appendTo('#questionContainer');
 		if(this.questions[this.currentQuestion].haveSnippet) {
-			this._setCode(this.questions[currentQuestion].id);
+			this._setCode(this.questions[this.currentQuestion].id);
 		}
 	},
 
 	_setCode: function(questionId) {
-		$('#codeContainer').empty();
-		$('#codeContainer').append(this.snippets.filter('#pre' + questionId));
+		$('#codeContainer').append(this.snippets.filter('pre#' + questionId));
 		$('pre code').each(function (i, block) {
 			hljs.highlightBlock(block);
 		});
