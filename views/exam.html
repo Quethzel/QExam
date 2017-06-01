@@ -1,9 +1,13 @@
 <div id="exam">
-	<!-- <h1 id="examTitle"></h1> -->
 	<div id="examInfo">
 		<samp id="descriptionExam"></samp>
 		<samp id="counterQuestion"></samp>
 	</div>
+    <div id="progressBarContainer">
+        <div class="progress progress-striped active" style="width:100%; height:10px; border-radius:3px;">
+            <div class="progress-bar" width="40%" style="background-color:lightseagreen;"></div>
+        </div>
+    </div>    
 	<div id="questionContainer"></div>
 	<div id="codeContainer"></div>
 	<div id="choiceContainer"></div>
@@ -27,7 +31,7 @@
 	</div>
 </div>
 
-
+<!-- modals -->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

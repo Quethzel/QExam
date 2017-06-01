@@ -273,26 +273,26 @@
 	},
 	{
 		"id": "q12",
-		"question": "¿Cómo se declara una variable foo local y bar global?",
+		"question": "¿Que devuelve el siguiente código?",
 		"choices": [
 			{
-				"answer": "foo, bar;",
+				"answer": "20, 40",
 				"correct": false
 			},
 			{
-				"answer": "var foo, bar;",
+				"answer": "16, 40",
 				"correct": false
 			},
 			{
-				"answer": "bar, foo;",
-				"correct": false
-			},
-			{
-				"answer": "bar, var foo",
+				"answer": "16, 20;",
 				"correct": true
+			},
+			{
+				"answer": "20, 20",
+				"correct": false
 			}			
 		],
-		"haveSnippet": false,
+		"haveSnippet": true,
 		"userAnswer": null
 	},
 	{
@@ -385,26 +385,18 @@
 	},
 	{
 		"id": "q17",
-		"question": "¿Cómo se declara una función en JavaScript?",
+		"question": "¿La siguiente condición puede validar que x sea difente de null, undefined, cadena vacia y 0?",
 		"choices": [
 			{
-				"answer": "function theAmazingFunction() { }",
+				"answer": "Si",
 				"correct": true
 			},
 			{
-				"answer": "create new Function(theAmazingFunction) { }",
+				"answer": "No",
 				"correct": false
-			},
-			{
-				"answer": "function(theAmazingFunction) { }",
-				"correct": false
-			},
-			{
-				"answer": "$(function() { })",
-				"correct": false
-			}			
+			}
 		],
-		"haveSnippet": false,
+		"haveSnippet": true,
 		"userAnswer": null
 	},
 	{

@@ -18,15 +18,15 @@ QEx.ExamModule = {
 	questions: [],
 	snippetName: "snippets.html",
 	snippets: [],
-	displayTime: false,
-	displayCount: false,
-	displayExamFinished: true,
 	selectedAnswer: null,
-	lockDevTools: false,
-	f12wasPressed: false,
 	currentQuestion: 0,
 	score: 0,
-	linkedToFiredb: false,
+	displayTime: false,
+	displayCount: false,
+	displayProgressBar: true,
+	displayExamFinished: true,	
+	lockDevTools: true,
+	linkedToFiredb: true,
 	sarcasticMode: true,
 
 	//methods
@@ -34,15 +34,12 @@ QEx.ExamModule = {
 		this.currentQuestion = 0;
 		this.score = 0;
 
-		$('#extraContainer').css('display', 'none');
-		//$('#examTitle').text(this.title);
 		$('#descriptionExam').text(this.id + ' | ' + this.description);
-		
+		$('#extraContainer').css('display', 'none');
+		$('#progressBarContainer').css('display', this.displayProgressBar? 'block' : 'none');
+
 		if(this.displayCount) {
 			$('#counterQuestion').text(' | Question ' + this.currentQuestion + ' To ' + this.questions.length);
-		}
-		if(this.lockDevTools) {
-			this.lockKeys();
 		}
 
 		this.getExam();
@@ -52,7 +49,7 @@ QEx.ExamModule = {
 		var exam = this;
 
 		$(document.createElement('button'))
-			.attr('id', 'nextQ').text('Siguiente')
+			.attr('id', 'nextQ').text('Next')
 			.attr('disabled', 'disabled')
 			.addClass('btn btn-lg btn-block').appendTo("#controlContainer");
 
@@ -134,13 +131,18 @@ QEx.ExamModule = {
 		thisModule.questions[current].userAnswer = selected;
 
 		if(thisModule.questions[current].choices[selected].correct) {
-			thisModule.score ++;
+			thisModule.score++;
 		}
+		thisModule.currentQuestion++;
+		
+		if(this.displayProgressBar) {
+			this._updateProgressBar();
+		}
+
 		if(current == thisModule.questions.length-1) {
 			thisModule._endExam();
 		} 
 		else {
-			thisModule.currentQuestion++;
 			if(thisModule.displayCount) {
 				thisModule._updateCounterQuestion();
 			}
@@ -159,7 +161,7 @@ QEx.ExamModule = {
 		$('#codeContainer').empty();
 		$('#choiceContainer').empty();
 		$('#controlContainer').empty();
-		
+
 		this.score = Math.round(this.score/this.questions.length * 100);
 		this._showScore();
 		
@@ -229,11 +231,16 @@ QEx.ExamModule = {
 
 	},
 
+	_updateProgressBar: function() {
+		var val = Math.floor((this.currentQuestion * 100) / this.questions.length) + '%';
+		$('.progress-bar').width(val);
+		$('#counterQuestion').text( '| ' + val);
+	},
+
 	lockKeys: function() {
 		// lock right click and keys F12, Ctrl + Shift + I
 		$(document).keydown(function(event) {
 		    if(event.keyCode == 123) {
-		    	this.f12wasPressed = true;
 		    	console.log('Las herramientas de desarrollador no son requeridas en este examen');
 		        return false;
 		    }

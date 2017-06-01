@@ -37,6 +37,10 @@ App.controller('AppController', function ($scope, $rootScope, $routeParams, $loc
         $scope.showMenu = ($location.path() != "/exam") ? true : false;
     });
     
+    if(QEx.ExamModule.lockDevTools) {
+        QEx.ExamModule.lockKeys();
+    }    
+
     /* initializes firedb */
     if(QEx.ExamModule.linkedToFiredb) {
         QEx.firedb.init();
@@ -79,8 +83,8 @@ App.controller('resultsCtrl', function($scope, $state) {
 
 App.controller('aboutCtrl', function($scope, $state) {
     $scope.version = {
-        system: "1.1.2",
+        system: "1.2.0",
         database: "4.0.0 firedb",
-        date: "30.05.2017 11:27 p.m."
+        date: "01.06.2017 01:36 a.m."
     };
 });
