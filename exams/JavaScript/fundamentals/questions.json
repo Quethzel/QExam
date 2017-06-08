@@ -225,7 +225,7 @@
 	},
 	{
 		"id": "q10",
-		"question": "¿Como se inserta un comentario inline?",
+		"question": "¿Cómo se inserta un comentario inline?",
 		"choices": [
 			{
 				"answer": "//",
@@ -297,7 +297,7 @@
 	},
 	{
 		"id": "q13",
-		"question": "¿Qué sentencia se utiliza para condicionar que la variable x sea diferente de 3?",
+		"question": "¿Qué sentencia se utiliza para condicionar que la variable ''x'' sea diferente de 3?",
 		"choices": [
 			{
 				"answer": "if(x <> 3) {... }",
@@ -385,7 +385,7 @@
 	},
 	{
 		"id": "q17",
-		"question": "¿La siguiente condición puede validar que x sea difente de null, undefined, cadena vacia y 0?",
+		"question": "¿La siguiente condición puede validar que ''x'' sea difente de null, undefined, cadena vacia y 0?",
 		"choices": [
 			{
 				"answer": "Si",
@@ -417,7 +417,7 @@
 	},
 	{
 		"id": "q19",
-		"question": "¿Que función se utiliza para obtiene la longitud de una cadena?",
+		"question": "¿Que función se utiliza para obtener la longitud de una cadena?",
 		"choices": [
 			{
 				"answer": "count('cadena');",
@@ -501,7 +501,7 @@
 	},
 	{
 		"id": "q23",
-		"question": "¿Cual de las siguientes expresiones devuelve false?",
+		"question": "¿Cuál de las siguientes expresiones devuelve false?",
 		"choices": [
 			{
 				"answer": "var x; console.log(x == null);",

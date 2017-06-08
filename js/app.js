@@ -31,6 +31,9 @@ App.config(function($stateProvider, $urlRouterProvider, $routeProvider) {
 
 });
 
+App.run(function($state, $rootScope){
+   $rootScope.$state = $state;
+});
 
 App.controller('AppController', function ($scope, $rootScope, $routeParams, $location, $state) {
     $scope.$on('$locationChangeStart', function(event) {
@@ -81,10 +84,10 @@ App.controller('resultsCtrl', function($scope, $state) {
 });
 
 
-App.controller('aboutCtrl', function($scope, $state) {
+App.controller('aboutCtrl', function($scope, $state) {    
     $scope.version = {
-        system: "1.2.0",
+        system: "1.2.1",
         database: "4.0.0 firedb",
-        date: "01.06.2017 01:36 a.m."
+        date: "07.06.2017 11:53 p.m."
     };
 });

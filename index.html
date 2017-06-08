@@ -22,13 +22,8 @@
 
 	<div class="container" ui-view=""></div>
 
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">made with coffee <i class="fa fa-coffee"></i> by 
-				<a href="http://www.iamQuethzel.com" target="_blank">Quethzel Díaz</a>
-			</p>
-		</div>
-	</footer>
+	<div ng-include src="'views/footer.html'" ng-hide="!$state.includes('about')"></div>
+
 	<!-- angularjs -->
 	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 	<script type="text/javascript" src="vendors/angular1.5.9.min.js"></script>
