@@ -11,10 +11,15 @@ App.config(function($stateProvider, $urlRouterProvider, $routeProvider) {
             templateUrl: 'views/login.html',
             controller: 'loginCtrl'
         })
-        .state('exam', {
-            url: '/exam',
-            templateUrl: 'views/exam.html',
-            controller: 'examCtrl'
+        .state('home', {
+            url: '/home',
+            templateUrl: 'views/home.html',
+            controller: 'homeController'
+        })
+        .state('personalStrengths', {
+            url: '/personalStrengths',
+            templateUrl: 'views/personalStrengths.html',
+            controller: 'personalStrengthsController'
         })
         .state('about', {
             url: '/about',
@@ -27,7 +32,7 @@ App.config(function($stateProvider, $urlRouterProvider, $routeProvider) {
             controller: 'resultsCtrl'
         })
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/home');
 
 });
 
@@ -39,50 +44,11 @@ App.controller('AppController', function ($scope, $rootScope, $routeParams, $loc
     $scope.$on('$locationChangeStart', function(event) {
         $scope.showMenu = ($location.path() != "/exam") ? true : false;
     });
-    
-    if(QEx.ExamModule.lockDevTools) {
-        QEx.ExamModule.lockKeys();
-    }    
-
-    /* initializes firedb */
-    if(QEx.ExamModule.linkedToFiredb) {
-        QEx.firedb.init();
-    }
 });
 
-
-App.controller('loginCtrl', function($scope, $state) {
-    $scope.user = {
-        username: null
-    };
-
-    $('#user').keyup(function(e) {
-        if(e.keyCode == 13)
-            $scope.starExam();
-    });
-    
-    $scope.starExam = function() {
-        $scope.submitted = true;
-        if($scope.loginForm.$invalid) {
-            return false;
-        }
-
-        QEx.user.setProfile({ name: $scope.user.username });
-        $state.go('exam');
-    };
+App.controller('homeController', function($scope, $state) {
+    console.log("home");
 });
-
-
-App.controller('examCtrl', function($scope, $state) {
-    /* implementarion of QEx */
-    QEx.ExamModule.init();
-});
-
-
-App.controller('resultsCtrl', function($scope, $state) {
-    QEx.firedb.getAllResults();
-});
-
 
 App.controller('aboutCtrl', function($scope, $state) {    
     $scope.version = {

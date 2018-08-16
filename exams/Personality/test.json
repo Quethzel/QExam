@@ -1,0 +1,35 @@
+{
+    "scale": [
+        { "value": 1, "text": "Completamente diferente a mi" },
+        { "value": 2, "text": "Diferente a mi" },
+        { "value": 3, "text": "Neutral" },
+        { "value": 4, "text": "Como yo" },
+        { "value": 5, "text": "Completamente como yo" }
+    ],
+    "questions": [
+        {
+            "id": "q1",
+            "question": "Siempre siento curiosidad por el mundo",
+            "userAnswer": null
+        },
+        {
+            "id": "q2",
+            "question": "Me entusiasma aprender algo nuevo",
+            "userAnswer": null
+        },
+        {
+            "id": "q3",
+            "question": "Cuando un tema lo requiere, puedo ser un pensador muy racional",
+            "userAnswer": null
+        },
+        {
+            "id": "q4",
+            "question": "Me gusta pensar en nuevas maneras de hacer las cosas",
+            "userAnswer": null
+        }
+    ],
+    "rules": [
+        { "displayText": "Curiosidad", "value": null, "constraint": [1,2] },
+        { "displayText": "Amor por el Aprendizaje", "value": null, "constraint": [3,4] }
+    ]
+}

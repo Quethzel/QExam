@@ -1,0 +1,277 @@
+{
+    "scale": [
+        { "value": 1, "text": "Completamente diferente a mi" },
+        { "value": 2, "text": "Diferente a mi" },
+        { "value": 3, "text": "Neutral" },
+        { "value": 4, "text": "Como yo" },
+        { "value": 5, "text": "Completamente como yo" }
+    ],
+    "questions": [
+        {
+            "id": "q1",
+            "question": "Siempre siento curiosidad por el mundo",
+            "userAnswer": null
+        },
+        {
+            "id": "q3",
+            "question": "Me entusiasma aprender algo nuevo",
+            "userAnswer": null
+        },
+        {
+            "id": "q5",
+            "question": "Cuando un tema lo requiere, puedo ser un pensador muy racional",
+            "userAnswer": null
+        },
+        {
+            "id": "q7",
+            "question": "Me gusta pensar en nuevas maneras de hacer las cosas",
+            "userAnswer": null
+        },
+        {
+            "id": "q9",
+            "question": "Sin importar el contexto social, soy capaz de encajar",
+            "userAnswer": null
+        },
+        {
+            "id": "q11",
+            "question": "Siempre soy capaz de analizar las cosas y verlas dentro de un panorama general",
+            "userAnswer": null
+        },
+        {
+            "id": "q13",
+            "question": "Con frecuencia me mantenido en mi postura ante una oposición férrea",
+            "userAnswer": null
+        },
+        {
+            "id": "q15",
+            "question": "Siempre termino lo que empiezo",
+            "userAnswer": null
+        },
+        {
+            "id": "q17",
+            "question": "Siempre cumplo mis promesas",
+            "userAnswer": null
+        },
+        {
+            "id": "q19",
+            "question": "Ayudé voluntariamente a un vecino en el éltimo mes",
+            "userAnswer": null
+        },
+        {
+            "id": "q21",
+            "question": "Hay personas en mi vida a quienes les importan tanto mis sentimientos y bienestar como los suyos",
+            "userAnswer": null
+        },
+        {
+            "id": "q23",
+            "question": "Trabajo mejor que nunca cuando soy parte de un equipo",
+            "userAnswer": null
+        },
+        {
+            "id": "q25",
+            "question": "Trato a todos por igual sin importar quiénes sean",
+            "userAnswer": null
+        },
+        {
+            "id": "q27",
+            "question": "Siempre puedo lograr que las personas trabajen en conjunto sin estar encima de ellas",
+            "userAnswer": null
+        },
+        {
+            "id": "q29",
+            "question": "Controlo mis emociones",
+            "userAnswer": null
+        },
+        {
+            "id": "q31",
+            "question": "Evito actividades que son fisicamente peligrosas",
+            "userAnswer": null
+        },
+        {
+            "id": "q33",
+            "question": "Cambio el tema cuando la gente me hace un cumplido",
+            "userAnswer": null
+        },
+        {
+            "id": "q35",
+            "question": "El pasado mes me emocionó la existencia de la música, arte, teatro, cine, deportes o matemáticas",
+            "userAnswer": null
+        },
+        {
+            "id": "q37",
+            "question": "Siempre digo gracias, incluso por las pequeñas cosas",
+            "userAnswer": null
+        },
+        {
+            "id": "q39",
+            "question": "Siempre veo el lado bueno de las cosas",
+            "userAnswer": null
+        },
+        {
+            "id": "q41",
+            "question": "Mi vida tiene un fuerte propósito",
+            "userAnswer": null
+        },
+        {
+            "id": "q43",
+            "question": "Siempre dejo que lo pasado se quede en el pasado",
+            "userAnswer": null
+        },
+        {
+            "id": "q45",
+            "question": "Siempre mezclo el trabajo y el juego tanto como sea posible",
+            "userAnswer": null
+        },
+        {
+            "id": "q47",
+            "question": "Me entrego en todo lo que hago",
+            "userAnswer": null
+        },
+        {
+            "id": "q2",
+            "question": "Me aburo con facilidad",
+            "userAnswer": null
+        },
+        {
+            "id": "q4",
+            "question": "Nunca me esfuerzo por visitar museos",
+            "userAnswer": null
+        },
+        {
+            "id": "q6",
+            "question": "Tiendo a hacer juicios precipitados",
+            "userAnswer": null
+        },
+        {
+            "id": "q8",
+            "question": "La mayoria de mis amigos son más imaginativos que yo",
+            "userAnswer": null
+        },
+        {
+            "id": "q10",
+            "question": "No soy muy bueno para persibir lo que otras personas sienten",
+            "userAnswer": null
+        },
+        {
+            "id": "q12",
+            "question": "Otras personas rara vez acuden a mí en busca de consejo",
+            "userAnswer": null
+        },
+        {
+            "id": "q14",
+            "question": "El dolor y la decepción son más fuertes que yo",
+            "userAnswer": null
+        },
+        {
+            "id": "q16",
+            "question": "Me distraigo con otras cosas cuando trabajo",
+            "userAnswer": null
+        },
+        {
+            "id": "q18",
+            "question": "Mis amigos nunca me dicen que tengo los pies en la tierra",
+            "userAnswer": null
+        },
+        {
+            "id": "q20",
+            "question": "Rara vez me emociono tanto por la buena fortuna de otros como por la mía",
+            "userAnswer": null
+        },
+        {
+            "id": "q22",
+            "question": "Me cuesta trabajo aceptar el amor de otros",
+            "userAnswer": null
+        },
+        {
+            "id": "q24",
+            "question": "Me custa trabajo sacrificar mis intereses personales en beneficio de los grupos a los que pertenezco",
+            "userAnswer": null
+        },
+        {
+            "id": "q26",
+            "question": "Si alguien no me agrada, me es difícil tratarlo con imparcialidad",
+            "userAnswer": null
+        },
+        {
+            "id": "q28",
+            "question": "No soy muy bueno para planear actividades grupales",
+            "userAnswer": null
+        },
+        {
+            "id": "q30",
+            "question": "Rara vez puedo llevar una dieta",
+            "userAnswer": null
+        },
+        {
+            "id": "q32",
+            "question": "A veces tomo decisiones equivocadas en cuanto a mis amistades y relaciones",
+            "userAnswer": null
+        },
+        {
+            "id": "q34",
+            "question": "A menudo alardeo de mis logros",
+            "userAnswer": null
+        },
+        {
+            "id": "q36",
+            "question": "No he creado nada bello en el último año",
+            "userAnswer": null
+        },
+        {
+            "id": "q38",
+            "question": "Rara vez me detengo a pensar en las cosas buenas de mi vida",
+            "userAnswer": null
+        },
+        {
+            "id": "q40",
+            "question": "Rara vez tengo un plan preparado para lo que quiero hacer",
+            "userAnswer": null
+        },
+        {
+            "id": "q42",
+            "question": "No tengo un llamado en la vida",
+            "userAnswer": null
+        },
+        {
+            "id": "q44",
+            "question": "Siempre trato de vengarme",
+            "userAnswer": null
+        },
+        {
+            "id": "q46",
+            "question": "Rara vez digo cosas chistosas",
+            "userAnswer": null
+        },
+        {
+            "id": "q48",
+            "question": "Me quejo mucho",
+            "userAnswer": null
+        }
+    ],
+    "rules": [
+        { "displayText": "Curiosidad", "value": null, "constraint": [1,2] },
+        { "displayText": "Amor por el Aprendizaje", "value": null, "constraint": [3,4] },
+        { "displayText": "Juicio", "value": null, "constraint": [5,6] },
+        { "displayText": "Ingenio", "value": null, "constraint": [7,8] },
+        { "displayText": "Inteligencia Social", "value": null, "constraint": [9,10] },
+        { "displayText": "Perspectiva", "value": null, "constraint": [11,12] },
+        { "displayText": "Valor", "value": null, "constraint": [13,14] },
+        { "displayText": "Perseverancia", "value": null, "constraint": [15,16] },
+        { "displayText": "Integridad", "value": null, "constraint": [17,18] },
+        { "displayText": "Amabilidad", "value": null, "constraint": [19,20] },
+        { "displayText": "Amar y Ser Amado", "value": null, "constraint": [21,22] },
+        { "displayText": "Ciudadania", "value": null, "constraint": [23,24] },
+        { "displayText": "Imparcialidad", "value": null, "constraint": [25,26] },
+        { "displayText": "Liderazgo", "value": null, "constraint": [27,28] },
+        { "displayText": "Autocontrol", "value": null, "constraint": [29,30] },
+        { "displayText": "Prudencia", "value": null, "constraint": [31,32] },
+        { "displayText": "Humanidad", "value": null, "constraint": [33,34] },
+        { "displayText": "Belleza", "value": null, "constraint": [35,36] },
+        { "displayText": "Gratitud", "value": null, "constraint": [37,38] },
+        { "displayText": "Optimismo", "value": null, "constraint": [39,40] },
+        { "displayText": "Espiritualidad", "value": null, "constraint": [41,42] },
+        { "displayText": "Perdón", "value": null, "constraint": [43,44] },
+        { "displayText": "Humor", "value": null, "constraint": [45,46] },
+        { "displayText": "Vitalidad", "value": null, "constraint": [47,48] }
+    ]
+}
