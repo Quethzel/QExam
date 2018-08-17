@@ -44,6 +44,7 @@ angular
             $scope.exam.lockKeys = lockKeys;
             $scope.exam._endExam = _endExam;
             $scope.exam._showResults = _showResults;
+            $scope.exam.print = printExam;
     
             function init() {
                 $scope.exam.currentQuestion = 0;
@@ -198,7 +199,6 @@ angular
                 var exam = $scope.exam;
                 var val = Math.floor((exam.currentQuestion * 100) / exam.questions.length) + '%';
                 $('.progress-bar').width(val);
-                // $('#counterQuestion').text( '| ' + val);
                 $scope.exam.progressText = val;
                 $scope.$apply();
             }
@@ -221,7 +221,11 @@ angular
                     console.log("El menú contextual no es requerido en esta página!");
                 });			
             }
-    
+
+            function printExam() {
+                printJS('tableResults', 'html');
+            }
+
             $scope.exam.init();
 
     }

@@ -17,13 +17,12 @@
     </div>   
     <div id="examContainer" ng-show="!exam.isFinished">
         <div id="questionContainer"></div>
-        <!-- <div id="codeContainer"></div> -->
         <div id="choiceContainer"></div>
         <div id="controlContainer"></div>    
     </div> 
 
 	<div id="resultContainer" ng-show="exam.result.length > 0">
-        <table class="table table-hover table-striped table-responsive">
+        <table id="tableResults" class="table table-hover table-striped table-responsive">
             <thead class="thead-dark">
                 <tr>
                     <th>Number</th>
@@ -46,8 +45,8 @@
             <h4>Where comes this exam and why should be do it?</h4>
             <a target="_blank" href="https://www.google.com">Click here to get an explanation of this exam</a>
         </div>
-		<button class="btn btn-md btn-default" ui-sref="login">Finish Exam</button>
-		<button class="btn btn-md btn-default" ui-sref="login">Download PDF</button>
+		<button class="btn btn-md btn-default" ui-sref="home">Finish Exam</button>
+		<button class="btn btn-md btn-default" ng-click="exam.print()" >Download PDF</button>
 		<button id="shareOnFacebook" class="btn btn-md btn-primary" data-toggle="modal" data-target="#myModal" ng-show="exam.config.sarcasticMode">Share <i class="fa fa-facebook"></i></button>
 	</div>
 </div>
