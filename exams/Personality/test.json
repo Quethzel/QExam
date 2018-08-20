@@ -13,23 +13,34 @@
             "userAnswer": null
         },
         {
-            "id": "q2",
+            "id": "q3",
             "question": "Me entusiasma aprender algo nuevo",
             "userAnswer": null
         },
         {
-            "id": "q3",
+            "id": "q5",
             "question": "Cuando un tema lo requiere, puedo ser un pensador muy racional",
             "userAnswer": null
         },
         {
-            "id": "q4",
-            "question": "Me gusta pensar en nuevas maneras de hacer las cosas",
+            "id": "q2",
+            "question": "Me aburo con facilidad",
             "userAnswer": null
-        }
+        },
+        {
+            "id": "q4",
+            "question": "Nunca me esfuerzo por visitar museos",
+            "userAnswer": null
+        },
+        {
+            "id": "q6",
+            "question": "Tiendo a hacer juicios precipitados",
+            "userAnswer": null
+        }        
     ],
     "rules": [
         { "displayText": "Curiosidad", "value": null, "constraint": [1,2] },
-        { "displayText": "Amor por el Aprendizaje", "value": null, "constraint": [3,4] }
+        { "displayText": "Amor por el Aprendizaje", "value": null, "constraint": [3,4] },
+        { "displayText": "Juicio", "value": null, "constraint": [5,6] }
     ]
 }

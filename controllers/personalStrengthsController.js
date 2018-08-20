@@ -1,7 +1,7 @@
 angular
 .module('appQex')
-.controller('personalStrengthsController', ['$scope',
-    function($scope) {
+.controller('personalStrengthsController', ['$scope', 'commonService', 
+    function($scope, commonService) {
             var GRAY_LIGHT1 = "#ECECEC";
             var TRANSPARENT = "transparent";
 
@@ -169,30 +169,21 @@ angular
                 var data = [];
                 for(var i = 0; i < $scope.exam.rules.length; i++) {
                     var rule = $scope.exam.rules[i];
-    
                     var constraint1 = rule.constraint[0];
                     var constraint2 = rule.constraint[1];
-    
                     var answ1 = $scope.exam.questions.find(i => i.id == "q" + constraint1).userAnswer;
                     var answ2 = $scope.exam.questions.find(i => i.id == "q" + constraint2).userAnswer;
-    
                     var strength = {
                         number: i + 1,
                         displayText: rule.displayText,
                         value: parseInt(answ1) + parseInt(answ2)
                     };
-    
                     data.push(strength);
                 }
     
-                data.sort(function(a, b) { 
-                    var comp = 0;
-                    if(a > b) { comp = 1; }
-                    else if(b > a) { comp = -1; }
-                    return comp;
-                });
+                commonService.sortDefault(data, 'value', 'desc');
                 $scope.exam.result = data;
-                $scope.$apply();    
+                $scope.$apply();
             }
             
             function _updateProgressBar() {
@@ -204,26 +195,11 @@ angular
             }
             
             function lockKeys() {
-                // lock right click and keys F12, Ctrl + Shift + I
-                $(document).keydown(function(event) {
-                    if(event.keyCode == 123) {
-                        console.log('Las herramientas de desarrollador no son requeridas en este examen');
-                        return false;
-                    }
-                    else if (event.ctrlKey && event.shiftKey && event.keyCode==73) {
-                        console.log('algunas teclas estan bloqueadas');
-                        return false;
-                    }
-                });
-                
-                $(document).on("contextmenu",function(e) {
-                    e.preventDefault();
-                    console.log("El menú contextual no es requerido en esta página!");
-                });			
+                commonService.lockKeys();
             }
 
             function printExam() {
-                printJS('tableResults', 'html');
+                commonService.print('tableResults', 'html');
             }
 
             $scope.exam.init();
