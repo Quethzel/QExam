@@ -1,7 +1,8 @@
 var App = angular.module('appQex', [
     'ngRoute',
     'ui.router',
-    'ngSanitize'
+    'ngSanitize',
+    'ui.bootstrap'
 ]);
 
 App.config(function($stateProvider, $urlRouterProvider, $routeProvider) {
@@ -46,19 +47,8 @@ App.controller('AppController', function ($scope, $rootScope, $routeParams, $loc
     });
 });
 
-App.controller('homeController', ['$scope', '$state', 'commonService', function($scope, $state, commonService) {
+App.controller('homeController', ['$scope', '$state', '$uibModal', 'commonService', function($scope, $state, $uibModal, commonService) {
     console.log("home");
-    var data = [
-        {name:"George", age:32, retiredate:"March 12, 2014"},
-        {name:"Edward", age:17, retiredate:"June 2, 2023"},
-        {name:"Christine", age:58, retiredate:"December 20, 2036"},
-        {name:"Sarah", age:62, retiredate:"April 30, 2020"}
-    ];
-
-    $scope.test = function() {
-        commonService.sortDefault(data, 'age', 'asc');
-        console.log(data);
-    }
 
 }]);
 
