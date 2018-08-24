@@ -5,12 +5,16 @@ var App = angular.module('appQex', [
     'ui.bootstrap'
 ]);
 
-App.config(function($stateProvider, $urlRouterProvider, $routeProvider) {
+App.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('login', {
             url: '/login',
             templateUrl: 'views/login.html',
-            controller: 'loginCtrl'
+            controller: 'loginController'
+        })
+        .state('app', {
+            url: '/welcome',
+            templateUrl: 'views/welcome.html',
         })
         .state('home', {
             url: '/home',
@@ -33,29 +37,45 @@ App.config(function($stateProvider, $urlRouterProvider, $routeProvider) {
             controller: 'resultsCtrl'
         })
 
+
     $urlRouterProvider.otherwise('/home');
 
 });
 
-App.run(function($state, $rootScope){
-   $rootScope.$state = $state;
+App.service('authService', function($q) {
+    return {
+        isAuth: function(){
+            return true;
+        }
+    }
 });
 
-App.controller('AppController', function ($scope, $rootScope, $routeParams, $location, $state) {
-    $scope.$on('$locationChangeStart', function(event) {
-        $scope.showMenu = ($location.path() != "/exam") ? true : false;
+App.run(function($rootScope, $transitions, authService) {
+    $transitions.onBefore({}, function(transition) {
+        if (!authService.isAuth() && transition.to().name != 'login') {
+          return transition.router.stateService.target('login');
+        }
     });
 });
+
+App.controller('AppController', function ($scope, $rootScope, $routeParams, $location, $state) {    
+    $scope.$on('$locationChangeStart', function(event) {
+        $scope.showMenu = ($location.path() != "/login") ? true : false;
+    });
+});
+
 
 App.controller('homeController', ['$scope', '$state', '$uibModal', 'commonService', function($scope, $state, $uibModal, commonService) {
     console.log("home");
 
 }]);
 
-App.controller('aboutCtrl', function($scope, $state) {    
+App.controller('aboutCtrl', function($scope) {
+
     $scope.version = {
         system: "1.2.1",
         database: "4.0.0 firedb",
         date: "07.06.2017 11:53 p.m."
     };
 });
+

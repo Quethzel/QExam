@@ -22,6 +22,18 @@ hr {
 	max-width: 380px;
 	margin: 200px auto 0;
 }
+form#sign-in input {
+	margin-bottom: 5px;
+	/* border: 0; */
+	/* outline: 0; */
+	background: transparent;
+	/* border-bottom: 1px solid #6c757d; */
+	/* border-radius: 0; */
+	background-color: rgb(240, 242, 245) !important;
+}
+form#sign-in input:-webkit-autofill {
+	transition: background-color 5000s ease-in-out 0s;
+}
 
 #examInfo {
 	margin: 25px 0 20px;

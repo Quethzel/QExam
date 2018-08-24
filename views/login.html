@@ -1,13 +1,21 @@
-<form id="sign-in" name="loginForm">
-	<samp>Basic JavaScript Skills</samp><hr/>
-	<div class="input-group">
-		<input type="text" id="user" name="username" class="form-control" ng-model="user.username" placeholder="name or email" ng-minlength="2" required autofocus>
-		<span class="input-group-btn">
-			<button type="button" id="starButton" class="btn btn-secondary" ng-click="starExam();">Start</button>
-		</span>
-	</div>
+<form id="sign-in" class="form-signin text-center" name="loginForm">
+	<samp>Log into QEx WebApp</samp><hr/>
+	<input type="email" id="user" name="username" class="form-control" ng-model="login.username" placeholder="email" ng-minlength="3" required autofocus>
+	<input type="password" id="pass" name="password" class="form-control" ng-model="login.password" placeholder="password" ng-minlength="4" required>
+	<button type="submit" class="btn btn-block btn-ligth" ng-click="login.signIn();">{{loginBtnText}}</button>
+
+
 	<div style="margin-top:3px;">
 		<p ng-show="submitted && loginForm.username.$error.required" class="alert-danger">You name or email is required.</p>
-		<p ng-show="submitted && loginForm.username.$error.minlength" class="alert-danger">You name or email is too short.</p>
+		<p ng-show="submitted && loginForm.username.$error.minlength" class="alert-danger">You name or email is too short (6 charts min).</p>
+		<p ng-if="error.code !== null;">{{error.message}}</p>
 	</div>
+
+	<div>
+			<button type="button" class="btn btn-link" ng-show="isReg" ng-click="login.backToMain()">Back</button>
+			<button type="button" class="btn btn-link" ng-show="!isReg" ng-click="login.setCreateAccount()">Create an Account</button>
+			<button type="button" class="btn btn-link" ng-show="!isReg" >Login with Google</button>
+	</div>
+
+	<p class="mt-5 mb-3 text-muted">Qex WebApp&reg; 2017-2018 <span>By H.Quethzel</span></p>
 </form>

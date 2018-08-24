@@ -1,7 +1,7 @@
 angular
 .module('appQex')
-.controller('personalStrengthsController', ['$scope', 'commonService', 
-    function($scope, commonService) {
+.controller('personalStrengthsController', ['$scope', 'commonService', 'firedbService',
+    function($scope, commonService, firedbService) {
             var GRAY_LIGHT1 = "#ECECEC";
             var TRANSPARENT = "transparent";
 
@@ -18,7 +18,7 @@ angular
                 displayProgressText: true,
                 displayExamFinished: true,	
                 lockDevTools: false,
-                linkedToFiredb: false,
+                linkedToFiredb: true,
                 sarcasticMode: true,                
             };
 
@@ -156,8 +156,13 @@ angular
                 $scope.exam.isFinished = true;
                 
                 if($scope.exam.config.linkedToFiredb) {
-                    // var data = $scope.exam.user.getDataUser();
-                    // $scope.QEx.firedb.saveResults(data);
+                    var dataExam = new userExamResult();
+                    dataExam.id = $scope.exam.config.id;
+                    dataExam.description = $scope.exam.config.description;
+                    dataExam.name = 'Jhone Doe';
+                    dataExam.score = 1;
+                    
+                    firedbService.saveExamResults(dataExam);
                 }
 
                 if($scope.exam.config.displayExamFinished) {
