@@ -69,15 +69,18 @@ App.controller('AppController', [ '$scope', '$state', '$location', 'firedbServic
     $scope.$on('$locationChangeStart', function(event) {
         $scope.showMenu = ($location.path() != "/login") ? true : false;
 
-        if($location.path() != "login") {
-            var user = firedbService.currentUser();
-            if(user != null) {
-                console.log(user);
-                $scope.userName = (user.displayName != null) ? user.displayName : user.email;
-            } else {
-                $state.go('login');
-            }
-
+        if($location.path() != "/login") {
+            firedbService.stateAuth()
+            .then(function(dataUser) {
+                var user = dataUser;
+                if(user != null) {
+                    $scope.userName = (user.displayName != null) ? user.displayName : user.email;
+                    $scope.$apply();
+                    console.log(user.email, user.uid, user.displayName);
+                } else {
+                    $state.go('login');
+                }                
+            });
         }
     });
 

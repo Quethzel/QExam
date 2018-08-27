@@ -59,9 +59,15 @@ function($scope, $state, $timeout, firedbService ) {
         } 
         //login
         else {
-            firedbService.signInByEmail($scope.login.username, $scope.login.password)
+            firedbService.setPersistence()
             .then(function() {
-                $state.transitionTo('home');
+                firedbService.signInByEmail($scope.login.username, $scope.login.password)
+                .then(function() {
+                    $state.transitionTo('home');
+                })
+                .catch(function(e) {
+                    _setError(e.code, e.message);
+                });
             })
             .catch(function(e) {
                 _setError(e.code, e.message);

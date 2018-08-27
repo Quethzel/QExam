@@ -23,6 +23,8 @@
         firedb.signInByEmail = _signInByEmail;
         firedb.signOut = _signOut;
         firedb.currentUser = _currentUser;
+        firedb.setPersistence = _setPersistence;
+        firedb.stateAuth = _stateAuth;
 
         // exam
         firedb.saveExamResults = _saveExamResults;
@@ -38,6 +40,10 @@
         }
 
         /* Auth */
+        function _setPersistence() {
+            return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+        }
+
         function _regByEmail(email, pass) {
             return firebase.auth().createUserWithEmailAndPassword(email, pass);
         }
@@ -54,6 +60,17 @@
             return firebase.auth().currentUser;
         }
 
+        function _stateAuth() {
+            return new Promise(function(resolve, reject) {
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if(user) {
+                        resolve(user);
+                    } else {
+                        reject(null);
+                    }
+                });
+            });
+        }
 
         /* exam */
         function _saveExamResults(data) {
