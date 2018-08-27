@@ -21,6 +21,11 @@ App.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/home.html',
             controller: 'homeController'
         })
+        .state('account', {
+            url: '/account',
+            templateUrl: 'views/account.html',
+            controller: 'accountController'
+        })
         .state('personalStrengths', {
             url: '/personalStrengths',
             templateUrl: 'views/personalStrengths.html',
@@ -58,11 +63,35 @@ App.run(function($rootScope, $transitions, authService) {
     });
 });
 
-App.controller('AppController', function ($scope, $rootScope, $routeParams, $location, $state) {    
+App.controller('AppController', [ '$scope', '$state', '$location', 'firedbService', function ($scope, $state, $location, firedbService) {
+    $scope.user = null;
+    $scope.userName = null;
     $scope.$on('$locationChangeStart', function(event) {
         $scope.showMenu = ($location.path() != "/login") ? true : false;
+
+        if($location.path() != "login") {
+            var user = firedbService.currentUser();
+            if(user != null) {
+                console.log(user);
+                $scope.userName = (user.displayName != null) ? user.displayName : user.email;
+            } else {
+                $state.go('login');
+            }
+
+        }
     });
-});
+
+    $scope.signOut = function() {
+        firedbService.signOut()
+        .then(function() {
+            $state.go('login');
+        })
+        .catch(function(e) {
+            console.log(e);
+        });
+    }
+
+}]);
 
 
 App.controller('homeController', ['$scope', '$state', '$uibModal', 'commonService', function($scope, $state, $uibModal, commonService) {
@@ -71,7 +100,6 @@ App.controller('homeController', ['$scope', '$state', '$uibModal', 'commonServic
 }]);
 
 App.controller('aboutCtrl', function($scope) {
-
     $scope.version = {
         system: "1.2.1",
         database: "4.0.0 firedb",
