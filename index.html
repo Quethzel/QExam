@@ -14,7 +14,7 @@
 </head>
 <body ng-controller="AppController">
 	<div class="container">
-		<div id="menu" ng-if="showMenu">
+		<div id="menu" ng-if="displayMenu">
 			<a ui-sref="home"><samp>Home</samp></a> | 
 			<a ui-sref="account"><samp>Me</samp></a> | 
 			<a ui-sref="about"><samp>About</samp></a> | 
@@ -24,7 +24,7 @@
 
 	<div class="container" ui-view=""></div>
 
-	<div ng-include src="'views/footer.html'" ng-hide="!$state.includes('about')"></div>
+	<div ng-include src="'views/footer.html'" ng-if="displayFooter"></div>
 
 	<!-- angularjs -->
 	<!-- <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script> -->

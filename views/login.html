@@ -14,8 +14,8 @@
 	<div>
 			<button type="button" class="btn btn-link" ng-show="isReg" ng-click="login.backToMain()">Back</button>
 			<button type="button" class="btn btn-link" ng-show="!isReg" ng-click="login.setCreateAccount()">Create an Account</button>
-			<button type="button" class="btn btn-link" ng-show="!isReg" >Login with Google</button>
+			<button type="button" class="btn btn-link" ng-show="!isReg" ng-click="login.signInWithGoogleAuth()" >Login with Google</button>
 	</div>
 
-	<p class="mt-5 mb-3 text-muted">Qex WebApp&reg; 2017-2018 <span>By H.Quethzel</span></p>
+	<p class="mt-5 mb-3 text-muted">Qex WebApp&reg; 2017-2018 <span><a href="http://www.iamQuethzel.com" target="_blank" class="text-muted">By H.Quethzel</a></span></p>
 </form>

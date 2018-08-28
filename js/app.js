@@ -64,10 +64,13 @@ App.run(function($rootScope, $transitions, authService) {
 });
 
 App.controller('AppController', [ '$scope', '$state', '$location', 'firedbService', function ($scope, $state, $location, firedbService) {
-    $scope.user = null;
     $scope.userName = null;
+    $scope.displayMenu = false;
+    $scope.displayFooter = false;
+
     $scope.$on('$locationChangeStart', function(event) {
-        $scope.showMenu = ($location.path() != "/login") ? true : false;
+        $scope.displayMenu = ($location.path() != "/login") ? true : false;
+        $scope.displayFooter = ($location.path() == "/about") ? true : false;
 
         if($location.path() != "/login") {
             firedbService.stateAuth()
