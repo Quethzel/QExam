@@ -66,7 +66,7 @@
                     if(user) {
                         resolve(user);
                     } else {
-                        reject(null);
+                        reject(new Error('expired session...'));
                     }
                 });
             });

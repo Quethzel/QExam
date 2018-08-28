@@ -80,6 +80,10 @@ App.controller('AppController', [ '$scope', '$state', '$location', 'firedbServic
                 } else {
                     $state.go('login');
                 }                
+            })
+            .catch(function(e) {
+                console.log(e);
+                $state.go('login');
             });
         }
     });
