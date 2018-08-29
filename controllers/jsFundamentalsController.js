@@ -1,28 +1,28 @@
-App.controller('personalStrengthsController', ['$scope', 'commonService', 'storageService', 'firedbService',
-    function($scope, commonService, storageService, firedbService) {
+App.controller('jsFundamentalsController', ['$scope', 'storageService', 'commonService', 'firedbService',
+    function($scope, storageService, commonService, firedbService) {
             var GRAY_LIGHT1 = "#ECECEC";
             var TRANSPARENT = "transparent";
 
             $scope.exam = {};
             $scope.exam.config = {
-                id : "EXA-PS001",
-                title: "Exam Strengths",
-                description: "Personal Strengths",
-                path: "exams/Personality/",
-                name: "test.json",
+                id : "EXA-JS001",
+                title: "Exam Js",
+                description: "Essential Theory & Fundamentals Of JavaScript",
+                path: "exams/JavaScript/fundamentals/",
+                name: "questions.json",
                 displayTime: false,
                 displayCount: false,
                 displayProgressBar: true,
                 displayProgressText: true,
                 displayExamFinished: true,	
                 lockDevTools: false,
-                linkedToFiredb: true,
-                sarcasticMode: true,                
+                linkedToFiredb: false,
+                sarcasticMode: true,
             };
-
+            
+            $scope.exam.snippetName = "snippets.html";
+            $scope.snippets = [];
             $scope.exam.questions = [];
-            $scope.exam.rules = [];
-            $scope.exam.scale = [];
             $scope.exam.result = [];
 
             $scope.exam.progressText = "0%";
@@ -30,6 +30,7 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
             $scope.exam.selectedAnswer = null,
             $scope.exam.currentQuestion = 0,
             $scope.exam.isFinished = false;
+            $scope.exam.score = 0;
             
             $scope.exam.init = init;
             $scope.exam.getExam = getExam;
@@ -42,10 +43,12 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
             $scope.exam.lockKeys = lockKeys;
             $scope.exam._endExam = _endExam;
             $scope.exam._showResults = _showResults;
+            $scope.exam.showScore = _showScore;
             $scope.exam.print = printExam;
     
             function init() {
                 $scope.exam.currentQuestion = 0;
+                $scope.exam.score = 0;
 
                 if($scope.exam.config.lockDevTools) {
                     lockKeys();
@@ -65,12 +68,19 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
                 $.getJSON(config.path + config.name)
                 .done(function (data) {
                     exam.questions = data.questions;
-                    exam.scale = data.scale;
-                    exam.rules = data.rules;
             
+                    _getSnippets();
+
                     $scope.exam._setQuestion(exam.questions[exam.currentQuestion].question);
-                    $scope.exam._setOptions(exam.scale);
+                    $scope.exam._setOptions(exam.questions[exam.currentQuestion].choices);
                     $scope.exam._setBehaviorButtons();
+                });
+            }
+
+            function _getSnippets() {
+                var exam = $scope.exam;
+                $.get(exam.config.path + exam.snippetName, function(data) {
+                    exam.snippets = $($.parseHTML(data)).filter('pre');
                 });
             }
             
@@ -78,16 +88,26 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
                 $('#questionContainer').empty();
                 $('#codeContainer').empty();
                 $(document.createElement('h4')).attr('id', 'question').text(question).appendTo('#questionContainer');
+                
+                if($scope.exam.questions[$scope.exam.currentQuestion].haveSnippet) {
+                    _setCode($scope.exam.questions[$scope.exam.currentQuestion].id);
+                }                
              }
+
+            function _setCode(questionId) {
+                $('#codeContainer').append($scope.exam.snippets.filter('pre#' + questionId));
+                $('pre code').each(function (i, block) {
+                    hljs.highlightBlock(block);
+                });
+            }
             
              function _setOptions(choices) {
                 $('#choiceContainer').empty();
                 for (var i = 0; i < choices.length; i++) {
-                    var pre = $(document.createElement('pre')).text(choices[i].text);
+                    var pre = $(document.createElement('pre')).text(choices[i].answer);
                     var li = $(document.createElement('li'));
                     li.addClass('choice-option')
                     li.attr('data-index', i)
-                    li.attr('data-value', choices[i].value)
                     li.append(pre);
                     li.appendTo('#choiceContainer');
                 };
@@ -103,7 +123,7 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
                 });		
             
                 $('.choice-option').on('click', function() {
-                    $scope.exam.selectedAnswer = $(this).attr('data-value');
+                    $scope.exam.selectedAnswer = $(this).attr('data-index');
                     $('#nextQ').removeAttr('disabled');
                     $('.choice-option').removeAttr('style').off('mouseout mouseover');
                     $(this).css({'border-color':'#222','font-weight':700,'background-color':GRAY_LIGHT1});
@@ -118,42 +138,50 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
             
             function _nextQuestion() {
                 var exam = $scope.exam;
-                $scope.exam._setQuestion(exam.questions[exam.currentQuestion].question);
-                $scope.exam._setOptions(exam.scale);
-                $scope.exam._setBehaviorButtons();
+                exam._setQuestion(exam.questions[exam.currentQuestion].question);
+                exam._setOptions(exam.questions[exam.currentQuestion].choices);
+                exam._setBehaviorButtons();
             }
             
             function _evaluateQuestion(selected) {
-                var thisModule = $scope.exam;
-                var current = thisModule.currentQuestion;
+                var exam = $scope.exam;
+                var current = $scope.exam.currentQuestion;
                 
-                thisModule.selectedAnswer = null;
-                thisModule.questions[current].userAnswer = selected;
-            
-                thisModule.currentQuestion++;
-                
-                if(thisModule.config.displayProgressBar) {
-                    thisModule._updateProgressBar();
+                exam.selectedAnswer = null;
+                exam.questions[current].userAnswer = selected;
+        
+                if(exam.questions[current].choices[selected].correct) {
+                    exam.score++;
                 }
-            
-                if(current == thisModule.questions.length-1) {
-                    thisModule._endExam();
+                exam.currentQuestion++;
+                
+                if(exam.config.displayProgressBar) {
+                    exam._updateProgressBar();
+                }
+        
+                if(current == exam.questions.length-1) {
+                    exam._endExam();
                 } 
                 else {
-                    thisModule._nextQuestion();
+                    if(exam.displayCount) {
+                        exam._updateCounterQuestion();
+                    }
+                    exam._nextQuestion();
                 }
             }
             
             function _endExam() {
                 $scope.exam.isFinished = true;
-                
+                $scope.exam.score = Math.round($scope.exam.score/$scope.exam.questions.length * 100);
+                $scope.exam.showScore();
+
                 if($scope.exam.config.linkedToFiredb) {
                     var dataExam = new userExamResult();
                     dataExam.date = new Date();
                     dataExam.id = $scope.exam.config.id;
                     dataExam.description = $scope.exam.config.description;
                     dataExam.name = storageService.get(userName);
-                    dataExam.score = 1;
+                    dataExam.score = $scope.exam.score;
                     
                     firedbService.saveExamResults(dataExam);
                 }
@@ -165,23 +193,33 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
                         
             function _showResults() {
                 var data = [];
-                for(var i = 0; i < $scope.exam.rules.length; i++) {
-                    var rule = $scope.exam.rules[i];
-                    var constraint1 = rule.constraint[0];
-                    var constraint2 = rule.constraint[1];
-                    var answ1 = $scope.exam.questions.find(i => i.id == "q" + constraint1).userAnswer;
-                    var answ2 = $scope.exam.questions.find(i => i.id == "q" + constraint2).userAnswer;
-                    var strength = {
-                        number: i + 1,
-                        displayText: rule.displayText,
-                        value: parseInt(answ1) + parseInt(answ2)
-                    };
-                    data.push(strength);
+
+                for(var i = 0; i < $scope.exam.questions.length; i++) {
+
+                    var question = $scope.exam.questions[i].question;
+                    var choices = $scope.exam.questions[i].choices;
+                    var userAnswer = choices[$scope.exam.questions[i].userAnswer];
+                    var correctAnswer = choices.filter(function(answer) {
+                        return answer.correct == true;
+                    })[0];
+
+                    var row = {
+                        question: question,
+                        userAnswer: userAnswer,
+                        correctAnswer: correctAnswer
+                    }
+                    data.push(row);
                 }
-    
-                commonService.sortDefault(data, 'value', 'desc');
+
                 $scope.exam.result = data;
                 $scope.$apply();
+            }
+
+            function _showScore() {
+                $(document.createElement('h4'))
+                .text("Your Score " + $scope.exam.score + "%")
+                .addClass('score')
+                .appendTo('#questionContainer');                
             }
             
             function _updateProgressBar() {

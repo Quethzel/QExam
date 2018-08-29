@@ -1,4 +1,4 @@
-angular.module('appQex').service('commonService', [
+App.service('commonService', [
     function() {
 
         var service = {
@@ -56,7 +56,7 @@ angular.module('appQex').service('commonService', [
                 e.preventDefault();
                 console.log("El menú contextual no es requerido en esta página!");
             });			
-        }        
+        } 
 
     }
 ]);

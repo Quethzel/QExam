@@ -1,598 +1,600 @@
-[
-	{
-		"id": "q0",
-		"question": "JavaScript es un lenguaje de programación...",
-		"choices": [
-			{
-				"answer": "Compilado",
-				"correct": false
-			},
-			{
-				"answer": "Interpretado",
-				"correct": true
-			},
-			{
-				"answer": "No estructurado",
-				"correct": false
-			},
-			{
-				"answer": "De bajo nivel",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	}, 
-	{
-		"id": "q1",
-		"question": "¿Cuál de las siguientes afirmaciones es verdadera?",
-		"choices": [
-			{
-				"answer": "JavaScript es una versión interpretada de Java",
-				"correct": false
-			},
-			{
-				"answer": "JavaScript es un branch que surgió de Java",
-				"correct": false
-			},
-			{
-				"answer": "JavaScript es una librería de la maquina virtual de Java",
-				"correct": false
-			},
-			{
-				"answer": "JavaScript tiene un modelo de objetos basado en prototipos",
-				"correct": true
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	}, 
-	{
-		"id": "q2",
-		"question": "La estandarización de JavaScript es realizada por",
-		"choices": [
-			{
-				"answer": "ECMA",
-				"correct": true
-			},
-			{
-				"answer": "Mozilla",
-				"correct": false
-			},
-			{
-				"answer": "W3C",
-				"correct": false
-			},
-			{
-				"answer": "The Script Consortium",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q3",
-		"question": "¿Que devuelve el siguiente código?",
-		"choices": [
-			{
-				"answer": "20, 13",
-				"correct": false
-			},
-			{
-				"answer": "211, 121",
-				"correct": false
-			},
-			{
-				"answer": "20, 121",
-				"correct": true
-			},
-			{
-				"answer": "ReferenceError",
-				"correct": false
-			}
-		],
-		"haveSnippet": true,
-		"userAnswer": null
-	},
-	{
-		"id": "q4",
-		"question": "¿Qué etiqueta de HTML se utiliza para escribir código JavaScript?",
-		"choices": [
-			{
-				"answer": "<javascript>",
-				"correct": false
-			},
-			{
-				"answer": "<script>",
-				"correct": true
-			},
-			{
-				"answer": "<js>",
-				"correct": false
-			},
-			{
-				"answer": "<scripting>",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q5",
-		"question": "¿Un archivo externo que contiene código JavaScript debe contener la etiqueta <script> ?",
-		"choices": [
-			{
-				"answer": "Si",
-				"correct": false
-			},
-			{
-				"answer": "No",
-				"correct": true
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q6",
-		"question": "¿JavaScript es sensible a mayúsculas y minúsculas?",
-		"choices": [
-			{
-				"answer": "Si",
-				"correct": true
-			},
-			{
-				"answer": "No",
-				"correct": false
-			},
-			{
-				"answer": "A veces",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q7",
-		"question": "¿DOM es el acrónimo de?",
-		"choices": [
-			{
-				"answer": "Document Operation Model",
-				"correct": false
-			},
-			{
-				"answer": "Document Object Markup",
-				"correct": false
-			},
-			{
-				"answer": "Document Object Model",
-				"correct": true
-			},
-			{
-				"answer": "Domain Object Model",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q8",
-		"question": "¿JavaScript es un lenguaje orientado a objetos?",
-		"choices": [
-			{
-				"answer": "Si",
-				"correct": true
-			},
-			{
-				"answer": "No",
-				"correct": false
-			},
-			{
-				"answer": "A veces",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q9",
-		"question": "¿Qué operador utiliza JavaScript para concatenar cadenas?",
-		"choices": [
-			{
-				"answer": "+",
-				"correct": true
-			},
-			{
-				"answer": ".",
-				"correct": false
-			},
-			{
-				"answer": "&",
-				"correct": false
-			},
-			{
-				"answer": "%",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q10",
-		"question": "¿Cómo se inserta un comentario inline?",
-		"choices": [
-			{
-				"answer": "//",
-				"correct": true
-			},
-			{
-				"answer": "/**/",
-				"correct": false
-			},
-			{
-				"answer": "<!-- -->",
-				"correct": false
-			},
-			{
-				"answer": "--",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q11",
-		"question": "¿Qué instrucción se emplea dentro del navegador para escribir un mensaje en consola?",
-		"choices": [
-			{
-				"answer": "console('mensaje');",
-				"correct": false
-			},
-			{
-				"answer": "console.log('mensaje');",
-				"correct": true
-			},
-			{
-				"answer": "console.print('mensaje');",
-				"correct": false
-			},
-			{
-				"answer": "console.write('mensaje');",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q12",
-		"question": "¿Que devuelve el siguiente código?",
-		"choices": [
-			{
-				"answer": "20, 40",
-				"correct": false
-			},
-			{
-				"answer": "16, 40",
-				"correct": false
-			},
-			{
-				"answer": "16, 20;",
-				"correct": true
-			},
-			{
-				"answer": "20, 20",
-				"correct": false
-			}			
-		],
-		"haveSnippet": true,
-		"userAnswer": null
-	},
-	{
-		"id": "q13",
-		"question": "¿Qué sentencia se utiliza para condicionar que la variable ''x'' sea diferente de 3?",
-		"choices": [
-			{
-				"answer": "if(x <> 3) {... }",
-				"correct": false
-			},
-			{
-				"answer": "if(x != 3) {... }",
-				"correct": true
-			},
-			{
-				"answer": "if(x =! 3) {... }",
-				"correct": false
-			},
-			{
-				"answer": "if x != 3 then...",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q14",
-		"question": "¿Qúe metodo de JavaScript utilizarias para calcular el máximo de 2 números?",
-		"choices": [
-			{
-				"answer": "Math.top(5,7)",
-				"correct": false
-			},
-			{
-				"answer": "Math.max(5,7)",
-				"correct": true
-			},
-			{
-				"answer": "Math.getMax(5,7)",
-				"correct": false
-			},
-			{
-				"answer": "Math.ceil(5,7)",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q15",
-		"question": "¿Que devuelve la operación 1/0?",
-		"choices": [
-			{
-				"answer": "null",
-				"correct": false
-			},
-			{
-				"answer": "undefined",
-				"correct": false
-			},
-			{
-				"answer": "infinity",
-				"correct": true
-			},
-			{
-				"answer": "error",
-				"correct": true
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q16",
-		"question": "El resultado de evaluar la expresión if(1 == '1') que devuelve...",
-		"choices": [
-			{
-				"answer": "true",
-				"correct": true
-			},
-			{
-				"answer": "false",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q17",
-		"question": "¿La siguiente condición puede validar que ''x'' sea difente de null, undefined, cadena vacia y 0?",
-		"choices": [
-			{
-				"answer": "Si",
-				"correct": true
-			},
-			{
-				"answer": "No",
-				"correct": false
-			}
-		],
-		"haveSnippet": true,
-		"userAnswer": null
-	},
-	{
-		"id": "q18",
-		"question": "¿La palabra reservada var puede ser utilizada para declarar variables locales y globales?",
-		"choices": [
-			{
-				"answer": "verdadero",
-				"correct": true
-			},
-			{
-				"answer": "falso",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q19",
-		"question": "¿Que función se utiliza para obtener la longitud de una cadena?",
-		"choices": [
-			{
-				"answer": "count('cadena');",
-				"correct": false
-			},
-			{
-				"answer": "cadena.length",
-				"correct": true
-			},
-			{
-				"answer": "cadena.len",
-				"correct": false
-			}
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q20",
-		"question": "¿Cuál es el resultado del siguiente código?",
-		"choices": [
-			{
-				"answer": "null",
-				"correct": false
-			},
-			{
-				"answer": "undefined",
-				"correct": false
-			},
-			{
-				"answer": "ReferenceError",
-				"correct": false
-			},
-			{
-				"answer": "0",
-				"correct": true
-			}			
-		],
-		"haveSnippet": true,
-		"userAnswer": null
-	},
-	{
-		"id": "q21",
-		"question": "¿Qué devuelve el siguiente código?",
-		"choices": [
-			{
-				"answer": "true",
-				"correct": true
-			},
-			{
-				"answer": "false",
-				"correct": false
-			}
-		],
-		"haveSnippet": true,
-		"userAnswer": null
-	},
-	{
-		"id": "q22",
-		"question": "¿Que devuelve la ejecución del siguiente código?",
-		"choices": [
-			{
-				"answer": "undefined, ReferenceError",
-				"correct": true
-			},
-			{
-				"answer": "undefined, undefined",
-				"correct": false
-			},			
-			{
-				"answer": "null, null",
-				"correct": false
-			},
-			{
-				"answer": "null, undefined",
-				"correct": false
-			}			
-		],
-		"haveSnippet": true,
-		"userAnswer": null
-	},
-	{
-		"id": "q23",
-		"question": "¿Cuál de las siguientes expresiones devuelve false?",
-		"choices": [
-			{
-				"answer": "var x; console.log(x == null);",
-				"correct": false
-			},
-			{
-				"answer": "var x; console.log(x == undefined);",
-				"correct": false
-			},
-			{
-				"answer": "var x; console.log(x === null);",
-				"correct": true
-			},
-			{
-				"answer": "var x; console.log(x === undefined);",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q24",
-		"question": "¿Cuál de las siguientes afirmaciones es falsa respecto a null y undefined?",
-		"choices": [
-			{
-				"answer": "undefined es una propiedad cuyo valor no esta definido.",
-				"correct": false
-			},
-			{
-				"answer": "null representa un valor primitivo vacio o no existente.",
-				"correct": false
-			},
-			{
-				"answer": "undefined es un valor utilizado por los objetos mientras que null es utilizado por variables.",
-				"correct": true
-			},
-			{
-				"answer": "null es un valor de tipo objeto",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q25",
-		"question": "¿Qué operador se utiliza para conocer el tipo de una variable u objeto?",
-		"choices": [
-			{
-				"answer": "typeof()",
-				"correct": true
-			},
-			{
-				"answer": "typeOf()",
-				"correct": false
-			},
-			{
-				"answer": "type()",
-				"correct": false
-			},
-			{
-				"answer": "instance()",
-				"correct": false
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	},
-	{
-		"id": "q26",
-		"question": "¿Cuál de las siguientes afirmaciones es verdadera respecto a los operadores == y === ?",
-		"choices": [
-			{
-				"answer": "el operador == es un estandar de Javascript mientras que el operador === es exclusivo de IE",
-				"correct": false
-			},
-			{
-				"answer": "el operador === compara el tipo de variable mientras que el operador == compara el valor",
-				"correct": false
-			},
-			{
-				"answer": "el operador == comparar el valor y el tipo de variable",
-				"correct": false
-			},
-			{
-				"answer": "el operador === compara el valor y el tipo de variable",
-				"correct": true
-			}			
-		],
-		"haveSnippet": false,
-		"userAnswer": null
-	}
-]
+{
+	"questions": [
+		{
+			"id": "q0",
+			"question": "JavaScript es un lenguaje de programación...",
+			"choices": [
+				{
+					"answer": "Compilado",
+					"correct": false
+				},
+				{
+					"answer": "Interpretado",
+					"correct": true
+				},
+				{
+					"answer": "No estructurado",
+					"correct": false
+				},
+				{
+					"answer": "De bajo nivel",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		}, 
+		{
+			"id": "q1",
+			"question": "¿Cuál de las siguientes afirmaciones es verdadera?",
+			"choices": [
+				{
+					"answer": "JavaScript es una versión interpretada de Java",
+					"correct": false
+				},
+				{
+					"answer": "JavaScript es un branch que surgió de Java",
+					"correct": false
+				},
+				{
+					"answer": "JavaScript es una librería de la maquina virtual de Java",
+					"correct": false
+				},
+				{
+					"answer": "JavaScript tiene un modelo de objetos basado en prototipos",
+					"correct": true
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		}, 
+		{
+			"id": "q2",
+			"question": "La estandarización de JavaScript es realizada por",
+			"choices": [
+				{
+					"answer": "ECMA",
+					"correct": true
+				},
+				{
+					"answer": "Mozilla",
+					"correct": false
+				},
+				{
+					"answer": "W3C",
+					"correct": false
+				},
+				{
+					"answer": "The Script Consortium",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q3",
+			"question": "¿Que devuelve el siguiente código?",
+			"choices": [
+				{
+					"answer": "20, 13",
+					"correct": false
+				},
+				{
+					"answer": "211, 121",
+					"correct": false
+				},
+				{
+					"answer": "20, 121",
+					"correct": true
+				},
+				{
+					"answer": "ReferenceError",
+					"correct": false
+				}
+			],
+			"haveSnippet": true,
+			"userAnswer": null
+		},
+		{
+			"id": "q4",
+			"question": "¿Qué etiqueta de HTML se utiliza para escribir código JavaScript?",
+			"choices": [
+				{
+					"answer": "<javascript>",
+					"correct": false
+				},
+				{
+					"answer": "<script>",
+					"correct": true
+				},
+				{
+					"answer": "<js>",
+					"correct": false
+				},
+				{
+					"answer": "<scripting>",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q5",
+			"question": "¿Un archivo externo que contiene código JavaScript debe contener la etiqueta <script> ?",
+			"choices": [
+				{
+					"answer": "Si",
+					"correct": false
+				},
+				{
+					"answer": "No",
+					"correct": true
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q6",
+			"question": "¿JavaScript es sensible a mayúsculas y minúsculas?",
+			"choices": [
+				{
+					"answer": "Si",
+					"correct": true
+				},
+				{
+					"answer": "No",
+					"correct": false
+				},
+				{
+					"answer": "A veces",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q7",
+			"question": "¿DOM es el acrónimo de?",
+			"choices": [
+				{
+					"answer": "Document Operation Model",
+					"correct": false
+				},
+				{
+					"answer": "Document Object Markup",
+					"correct": false
+				},
+				{
+					"answer": "Document Object Model",
+					"correct": true
+				},
+				{
+					"answer": "Domain Object Model",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q8",
+			"question": "¿JavaScript es un lenguaje orientado a objetos?",
+			"choices": [
+				{
+					"answer": "Si",
+					"correct": true
+				},
+				{
+					"answer": "No",
+					"correct": false
+				},
+				{
+					"answer": "A veces",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q9",
+			"question": "¿Qué operador utiliza JavaScript para concatenar cadenas?",
+			"choices": [
+				{
+					"answer": "+",
+					"correct": true
+				},
+				{
+					"answer": ".",
+					"correct": false
+				},
+				{
+					"answer": "&",
+					"correct": false
+				},
+				{
+					"answer": "%",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q10",
+			"question": "¿Cómo se inserta un comentario inline?",
+			"choices": [
+				{
+					"answer": "//",
+					"correct": true
+				},
+				{
+					"answer": "/**/",
+					"correct": false
+				},
+				{
+					"answer": "<!-- -->",
+					"correct": false
+				},
+				{
+					"answer": "--",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q11",
+			"question": "¿Qué instrucción se emplea dentro del navegador para escribir un mensaje en consola?",
+			"choices": [
+				{
+					"answer": "console('mensaje');",
+					"correct": false
+				},
+				{
+					"answer": "console.log('mensaje');",
+					"correct": true
+				},
+				{
+					"answer": "console.print('mensaje');",
+					"correct": false
+				},
+				{
+					"answer": "console.write('mensaje');",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q12",
+			"question": "¿Que devuelve el siguiente código?",
+			"choices": [
+				{
+					"answer": "20, 40",
+					"correct": false
+				},
+				{
+					"answer": "16, 40",
+					"correct": false
+				},
+				{
+					"answer": "16, 20;",
+					"correct": true
+				},
+				{
+					"answer": "20, 20",
+					"correct": false
+				}			
+			],
+			"haveSnippet": true,
+			"userAnswer": null
+		},
+		{
+			"id": "q13",
+			"question": "¿Qué sentencia se utiliza para condicionar que la variable ''x'' sea diferente de 3?",
+			"choices": [
+				{
+					"answer": "if(x <> 3) {... }",
+					"correct": false
+				},
+				{
+					"answer": "if(x != 3) {... }",
+					"correct": true
+				},
+				{
+					"answer": "if(x =! 3) {... }",
+					"correct": false
+				},
+				{
+					"answer": "if x != 3 then...",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q14",
+			"question": "¿Qúe metodo de JavaScript utilizarias para calcular el máximo de 2 números?",
+			"choices": [
+				{
+					"answer": "Math.top(5,7)",
+					"correct": false
+				},
+				{
+					"answer": "Math.max(5,7)",
+					"correct": true
+				},
+				{
+					"answer": "Math.getMax(5,7)",
+					"correct": false
+				},
+				{
+					"answer": "Math.ceil(5,7)",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q15",
+			"question": "¿Que devuelve la operación 1/0?",
+			"choices": [
+				{
+					"answer": "null",
+					"correct": false
+				},
+				{
+					"answer": "undefined",
+					"correct": false
+				},
+				{
+					"answer": "infinity",
+					"correct": true
+				},
+				{
+					"answer": "error",
+					"correct": true
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q16",
+			"question": "El resultado de evaluar la expresión if(1 == '1') que devuelve...",
+			"choices": [
+				{
+					"answer": "true",
+					"correct": true
+				},
+				{
+					"answer": "false",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q17",
+			"question": "¿La siguiente condición puede validar que ''x'' sea difente de null, undefined, cadena vacia y 0?",
+			"choices": [
+				{
+					"answer": "Si",
+					"correct": true
+				},
+				{
+					"answer": "No",
+					"correct": false
+				}
+			],
+			"haveSnippet": true,
+			"userAnswer": null
+		},
+		{
+			"id": "q18",
+			"question": "¿La palabra reservada var puede ser utilizada para declarar variables locales y globales?",
+			"choices": [
+				{
+					"answer": "verdadero",
+					"correct": true
+				},
+				{
+					"answer": "falso",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q19",
+			"question": "¿Que función se utiliza para obtener la longitud de una cadena?",
+			"choices": [
+				{
+					"answer": "count('cadena');",
+					"correct": false
+				},
+				{
+					"answer": "cadena.length",
+					"correct": true
+				},
+				{
+					"answer": "cadena.len",
+					"correct": false
+				}
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q20",
+			"question": "¿Cuál es el resultado del siguiente código?",
+			"choices": [
+				{
+					"answer": "null",
+					"correct": false
+				},
+				{
+					"answer": "undefined",
+					"correct": false
+				},
+				{
+					"answer": "ReferenceError",
+					"correct": false
+				},
+				{
+					"answer": "0",
+					"correct": true
+				}			
+			],
+			"haveSnippet": true,
+			"userAnswer": null
+		},
+		{
+			"id": "q21",
+			"question": "¿Qué devuelve el siguiente código?",
+			"choices": [
+				{
+					"answer": "true",
+					"correct": true
+				},
+				{
+					"answer": "false",
+					"correct": false
+				}
+			],
+			"haveSnippet": true,
+			"userAnswer": null
+		},
+		{
+			"id": "q22",
+			"question": "¿Que devuelve la ejecución del siguiente código?",
+			"choices": [
+				{
+					"answer": "undefined, ReferenceError",
+					"correct": true
+				},
+				{
+					"answer": "undefined, undefined",
+					"correct": false
+				},			
+				{
+					"answer": "null, null",
+					"correct": false
+				},
+				{
+					"answer": "null, undefined",
+					"correct": false
+				}			
+			],
+			"haveSnippet": true,
+			"userAnswer": null
+		},
+		{
+			"id": "q23",
+			"question": "¿Cuál de las siguientes expresiones devuelve false?",
+			"choices": [
+				{
+					"answer": "var x; console.log(x == null);",
+					"correct": false
+				},
+				{
+					"answer": "var x; console.log(x == undefined);",
+					"correct": false
+				},
+				{
+					"answer": "var x; console.log(x === null);",
+					"correct": true
+				},
+				{
+					"answer": "var x; console.log(x === undefined);",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q24",
+			"question": "¿Cuál de las siguientes afirmaciones es falsa respecto a null y undefined?",
+			"choices": [
+				{
+					"answer": "undefined es una propiedad cuyo valor no esta definido.",
+					"correct": false
+				},
+				{
+					"answer": "null representa un valor primitivo vacio o no existente.",
+					"correct": false
+				},
+				{
+					"answer": "undefined es un valor utilizado por los objetos mientras que null es utilizado por variables.",
+					"correct": true
+				},
+				{
+					"answer": "null es un valor de tipo objeto",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q25",
+			"question": "¿Qué operador se utiliza para conocer el tipo de una variable u objeto?",
+			"choices": [
+				{
+					"answer": "typeof()",
+					"correct": true
+				},
+				{
+					"answer": "typeOf()",
+					"correct": false
+				},
+				{
+					"answer": "type()",
+					"correct": false
+				},
+				{
+					"answer": "instance()",
+					"correct": false
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		},
+		{
+			"id": "q26",
+			"question": "¿Cuál de las siguientes afirmaciones es verdadera respecto a los operadores == y === ?",
+			"choices": [
+				{
+					"answer": "el operador == es un estandar de Javascript mientras que el operador === es exclusivo de IE",
+					"correct": false
+				},
+				{
+					"answer": "el operador === compara el tipo de variable mientras que el operador == compara el valor",
+					"correct": false
+				},
+				{
+					"answer": "el operador == comparar el valor y el tipo de variable",
+					"correct": false
+				},
+				{
+					"answer": "el operador === compara el valor y el tipo de variable",
+					"correct": true
+				}			
+			],
+			"haveSnippet": false,
+			"userAnswer": null
+		}
+	]
+}

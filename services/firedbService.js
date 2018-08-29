@@ -2,7 +2,7 @@
  * Firebase Namespace
  */
 
- angular.module('appQex').service('firedbService', [
+App.service('firedbService', [
      function() {
         var firedb = {};
 
