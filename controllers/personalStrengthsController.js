@@ -9,7 +9,7 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
                 title: "Exam Strengths",
                 description: "Personal Strengths",
                 path: "exams/Personality/",
-                name: "test.json",
+                name: "PersonalStrengths.json",
                 displayTime: false,
                 displayCount: false,
                 displayProgressBar: true,
@@ -152,7 +152,7 @@ App.controller('personalStrengthsController', ['$scope', 'commonService', 'stora
                     dataExam.date = new Date();
                     dataExam.id = $scope.exam.config.id;
                     dataExam.description = $scope.exam.config.description;
-                    dataExam.name = storageService.get(userName);
+                    dataExam.name = localStorage.getItem('userName');
                     dataExam.score = 1;
                     
                     firedbService.saveExamResults(dataExam);

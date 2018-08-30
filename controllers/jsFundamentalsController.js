@@ -16,7 +16,7 @@ App.controller('jsFundamentalsController', ['$scope', 'storageService', 'commonS
                 displayProgressText: true,
                 displayExamFinished: true,	
                 lockDevTools: false,
-                linkedToFiredb: false,
+                linkedToFiredb: true,
                 sarcasticMode: true,
             };
             
@@ -180,7 +180,7 @@ App.controller('jsFundamentalsController', ['$scope', 'storageService', 'commonS
                     dataExam.date = new Date();
                     dataExam.id = $scope.exam.config.id;
                     dataExam.description = $scope.exam.config.description;
-                    dataExam.name = storageService.get(userName);
+                    dataExam.name = localStorage.getItem('userName');
                     dataExam.score = $scope.exam.score;
                     
                     firedbService.saveExamResults(dataExam);
