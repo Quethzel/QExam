@@ -88,6 +88,10 @@ function ($scope, $rootScope, $state, $location, firedbService, storageService) 
                     $scope.userName = (user.displayName != null) ? user.displayName : user.email;
                     $rootScope.userName = $scope.userName;
                     storageService.set('userName', $scope.userName);
+                    
+                    if(localStorage.getItem('email') == null) { localStorage.setItem('email', user.email) }
+                    // if(localStorage.getItem())
+
                     $scope.$apply();
                 } else {
                     $state.go('login');

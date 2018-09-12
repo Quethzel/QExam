@@ -1,0 +1,39 @@
+{
+    "questions": [
+        {
+            "id": "q1",
+            "question": "¿Que te gusta hacer en tu tiempo libre?",
+            "userAnswer": null
+        },
+        {
+            "id": "q2",
+            "question": "¿Practicas algun deporte?",
+            "userAnswer": null
+        },
+        {
+            "id": "q3",
+            "question": "¿Te gustaria practicar algun deporte o actividad artistica, menciona cual?",
+            "userAnswer": null
+        },
+        {
+            "id": "q4",
+            "question": "Te gusta leer?",
+            "userAnswer": null
+        },
+        {
+            "id": "q5",
+            "question": "Aproximadamente cuantos libros leiste el año pasado?",
+            "userAnswer": null
+        },
+        {
+            "id": "q6",
+            "question": "Porque quieres trabajar en QWT Consulting Services?",
+            "userAnswer": null
+        },
+        {
+            "id": "q7",
+            "question": "Menciona al menos 5 virtudes que consideres, te caracterizan",
+            "userAnswer": null
+        }
+    ]
+}
